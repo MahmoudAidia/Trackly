@@ -1,25 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { expensesData } from "../../data/ExpensesDate";
 
-const initialState = [
-  {
-    id: 1,
-    title: "",
-    amount: 0,
-    price: 0,
-    date: "",
-    description: "",
-  },
-];
+const initialState = expensesData;
 
 const expensesSlice = createSlice({
   initialState,
-  name: "payments",
+  name: "expenses",
   reducers: {
     addExpense(state, action) {
       state.push(action.payload);
     },
     deleteExpense(state, action) {
-      state.filter((item) => item.id !== action.payload);
+      return state.filter((item) => item.id !== action.payload);
     },
     reset() {
       return [];
@@ -27,6 +19,6 @@ const expensesSlice = createSlice({
   },
 });
 
-export const selectAllPayments = (state) => state.payments;
+export const selectAllExpenses = (state) => state.expenses;
 export const { addExpense, deleteExpense } = expensesSlice.actions;
 export default expensesSlice.reducer;

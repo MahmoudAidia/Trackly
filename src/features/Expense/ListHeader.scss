@@ -1,0 +1,16 @@
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+  span {
+    padding: 0 15px;
+    width: 100px;
+    justify-self: start;
+    font-size: 18px;
+  }
+
+  .firstChild {
+    width: 225px;
+  }
+}

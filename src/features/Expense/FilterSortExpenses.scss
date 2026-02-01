@@ -1,0 +1,48 @@
+.filterContainer {
+  margin: 20px 0;
+  margin-top: 10px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .sort {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 50%;
+    font-size: 20px;
+
+    div {
+      width: 300px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .active {
+        background-color: var(--main-btn);
+        color: #fff;
+      }
+      button {
+        transition: all 0.4s;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #fff;
+      }
+      button:hover {
+        background-color: var(--font-color);
+        color: #fff;
+      }
+    }
+  }
+  .filter {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    width: 50%;
+    h4 {
+      width: 50%;
+    }
+  }
+}

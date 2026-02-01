@@ -6,8 +6,18 @@
 
 body {
   margin: 0 40px;
+  background-color: #e7f5ff;
+  color: var(--font-color);
 }
 
 :root {
+  --font-color: #042240;
   --main-btn: #222;
+  --main-color: #1c7ed6;
+  --tint-1: #228be6;
+  --tint-2: #339af0;
+  --tint-3: #4dabf7;
+  --tint-4: #74c0fc;
+  --tint-5: #a5d8ff;
+  --tint-6: #d0ebff;
 }

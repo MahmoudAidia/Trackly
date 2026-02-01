@@ -1,0 +1,31 @@
+li {
+  padding: 15px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--tint-6);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+
+  div {
+    width: 225px;
+    h4 {
+      margin-bottom: 10px;
+    }
+  }
+  span {
+    width: 100px;
+    justify-self: start;
+  }
+  button {
+    background-color: #c92a2a;
+    font-size: 16px;
+    border: none;
+    padding: 10px 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ddd;
+    font-weight: 700;
+  }
+}

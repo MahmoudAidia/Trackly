@@ -20,8 +20,8 @@
     }
     a:hover,
     a:active {
+      background-color: var(--font-color);
       color: #fff;
-      background-color: var(--main-btn);
     }
   }
 }
