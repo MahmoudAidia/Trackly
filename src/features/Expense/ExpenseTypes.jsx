@@ -18,7 +18,7 @@ const types = [
 ];
 function ExpenseTypes({ handleOnChange, value }) {
   return (
-    <select onChange={(e) => handleOnChange(addFilter(e.target.value))}>
+    <select onChange={(e) => handleOnChange(e.target.value)}>
       {types.map((item) => (
         <option key={item.id} value={item.type}>
           {item.type}

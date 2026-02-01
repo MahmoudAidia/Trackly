@@ -37,7 +37,13 @@
       outline: none;
       background-color: #fff;
     }
-
+    input {
+      border: none;
+    }
+    input[name="Date"],
+    select {
+      cursor: pointer;
+    }
     select {
       align-self: flex-end;
       option {

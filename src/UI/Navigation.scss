@@ -4,6 +4,10 @@
   margin: 0 auto;
   margin-top: 30px;
   justify-content: space-between;
+  span {
+    display: inline-block;
+    align-self: center;
+  }
   nav {
     display: flex;
     align-items: center;

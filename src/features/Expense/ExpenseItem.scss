@@ -16,16 +16,26 @@ li {
   }
   span {
     width: 100px;
-    justify-self: start;
+    justify-self: center;
+    align-self: center;
   }
   button {
-    background-color: #c92a2a;
+    width: fit-content;
+    background-color: var(--font-color);
     font-size: 16px;
     border: none;
-    padding: 10px 13px;
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    color: #ddd;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+
+    span {
+      width: fit-content;
+      display: inline-block;
+    }
   }
 }

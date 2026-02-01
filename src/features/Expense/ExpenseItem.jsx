@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
-import "./ExpenseItem.scss";
 import { deleteExpense } from "../../features/Expense/expensesSlice";
+import "./ExpenseItem.scss";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 function ExpenseItem({ item }) {
   const dispatch = useDispatch();
@@ -16,7 +17,8 @@ function ExpenseItem({ item }) {
       <span>{item.price}$</span>
       <span>{item.date}</span>
       <button type="button" onClick={() => dispatch(deleteExpense(item.id))}>
-        Delete
+        <DeleteIcon />
+        <span>Delete</span>
       </button>
     </li>
   );
