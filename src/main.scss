@@ -5,19 +5,23 @@
 }
 
 body {
-  margin: 0 40px;
-  background-color: #e7f5ff;
-  color: var(--font-color);
+  margin: 0 20px;
+  background-color: var(--background);
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: var(--text);
 }
 
 :root {
-  --font-color: #042240;
-  --main-btn: #222;
-  --main-color: #1c7ed6;
-  --tint-1: #228be6;
-  --tint-2: #339af0;
-  --tint-3: #4dabf7;
-  --tint-4: #74c0fc;
-  --tint-5: #a5d8ff;
-  --tint-6: #d0ebff;
+  --primary: #4f46e5;
+  --success: #22c55e;
+  --success-tint: #22c55e24;
+  --danger: #ef4444;
+  --danger-tint: #ffe3e3;
+  --background: #f9fafb;
+  --text: #111827;
+  --text-tint: #11182796;
+  --headings: 600;
+  --gradient: linear-gradient(90deg, #5738f7 0%, #9218fa 100%);
 }

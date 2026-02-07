@@ -1,0 +1,34 @@
+.signup {
+  min-width: 400px;
+  margin: 0 auto;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  .signHeader {
+    margin-bottom: 20px;
+    text-align: start;
+    h2 {
+      font-weight: 700;
+      margin-bottom: 5px;
+      font-size: 40px;
+      letter-spacing: 1px;
+    }
+    p {
+      color: var(--text);
+      font-size: 16px;
+    }
+  }
+
+  .backToLogin {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 0;
+    a {
+      text-decoration: none;
+      color: var(--primary);
+    }
+  }
+}

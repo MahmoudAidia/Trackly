@@ -1,0 +1,53 @@
+.container {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .WelcomeComponent {
+    width: 70vw;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    svg {
+      font-size: 120px;
+      color: var(--primary);
+    }
+
+    h2 {
+      font-size: 46px;
+      margin: 20px 0 15px 0;
+      font-weight: 800;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 500px;
+      min-width: 300px;
+      margin-bottom: 15px;
+    }
+
+    .dots {
+      display: flex;
+      flex-direction: row;
+      span {
+        display: inline-block;
+        margin-right: 10px;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+        background-color: #ddd;
+        transition: all 0.4;
+      }
+      span.active {
+        background-color: var(--primary);
+        width: 40px;
+        height: 7px;
+        border-radius: 3px;
+      }
+    }
+  }
+}

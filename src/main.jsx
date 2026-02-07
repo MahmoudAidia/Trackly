@@ -1,32 +1,41 @@
-import "./main.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import Home from "./pages/Home.jsx";
-import Balance from "./pages/Balance.jsx";
-import Billing from "./pages/Billing.jsx";
-import Layout from "./pages/Layout.jsx";
 import { Provider } from "react-redux";
-import store from "./app/store.js";
-import Expenses from "./pages/Expenses.jsx";
+
+import WelcomePage from "./pages/InfoPages/WelcomePage";
+import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
+import Layout from "./Layout/Layout";
+import "./main.scss";
+import Dashboard from "./Layout/Dashboard";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <WelcomePage />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/sign",
+    element: <Signup />,
+  },
+  {
+    path: "/app",
     element: <Layout />,
-
     children: [
-      { path: "/home", element: <Home /> },
-      { path: "/balance", element: <Balance /> },
-      { path: "/expenses", element: <Expenses /> },
-      { path: "/billing", element: <Billing /> },
+      {
+        element: <Dashboard />,
+        path: "dashboard",
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+    <RouterProvider router={router} />
   </StrictMode>,
 );
