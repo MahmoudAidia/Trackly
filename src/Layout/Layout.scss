@@ -61,5 +61,20 @@
         }
       }
     }
+
+    .addTransaction {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      justify-content: center;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 130px;
+      background: var(--gradient);
+      color: var(--background);
+    }
   }
 }

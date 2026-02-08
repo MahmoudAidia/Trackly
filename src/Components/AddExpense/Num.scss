@@ -1,0 +1,13 @@
+.num {
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.num:hover {
+  background-color: #e3e1e1;
+}

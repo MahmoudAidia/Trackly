@@ -1,0 +1,32 @@
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid;
+  border-radius: 10px;
+  list-style: none;
+  padding: 15px;
+  border: 1px solid #ccc;
+  color: var(--text);
+  span {
+    display: block;
+  }
+  svg {
+    color: var(--primary);
+  }
+}
+
+.categoryItem:hover {
+  background-color: var(--background-hover);
+  cursor: pointer;
+}
+.categoryItem.active {
+  background-color: var(--background-hover);
+  border: 1px solid var(--primary);
+}
+.categoryItem.colorName {
+  color: var(--primary);
+  font-weight: 600;
+}
