@@ -1,0 +1,17 @@
+.pieChartItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0;
+  gap: 0;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  height: 40vh;
+  .pieChart,
+  .text {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}

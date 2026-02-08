@@ -1,17 +1,25 @@
+import BarChartItem from "../Components/Dashboard/BarChartItem";
 import Overview from "../Components/Dashboard/Overview";
-import { auth } from "../Firebase/firebase";
+import PieChartItem from "../Components/Dashboard/PieChartItem";
+import RecentTransactions from "../Components/Dashboard/RecentTransactions";
+import { getData } from "../hooks/getData";
 import "./Dashboard.scss";
 
 function Dashboard() {
-  console.log(auth?.currentUser);
   return (
     <div className="dashboard">
       <div className="overviewBox">
         <Overview />
       </div>
-      <div className="chartBox"></div>
-      <div className="barBox"></div>
-      <div className="recentTransBox"></div>
+      <div className="chartBox">
+        <PieChartItem />
+      </div>
+      <div className="barBox">
+        <BarChartItem />
+      </div>
+      <div className="recentTransBox">
+        <RecentTransactions />
+      </div>
     </div>
   );
 }

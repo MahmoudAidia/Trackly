@@ -36,7 +36,7 @@ function Signup() {
       displayName: name,
     });
 
-    navigate("/app");
+    navigate("/app/dashboard");
   }
 
   return (

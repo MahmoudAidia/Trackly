@@ -2,7 +2,6 @@ import { ChevronLeft, ChevronRight, MovingOutlined } from "@mui/icons-material";
 import WalletOutlinedIcon from "@mui/icons-material/WalletOutlined";
 import TrendingDownOutlinedIcon from "@mui/icons-material/TrendingDownOutlined";
 import "./overview.scss";
-import { getData } from "../../hooks/getData";
 function Overview() {
   return (
     <div className="overview">

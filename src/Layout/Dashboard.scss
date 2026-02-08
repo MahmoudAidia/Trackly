@@ -3,10 +3,9 @@
   margin-bottom: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
   column-gap: 15px;
   row-gap: 0;
-  height: 200vh;
   .overviewBox {
     background: var(--gradient);
     border-bottom-right-radius: 10px;
@@ -21,11 +20,13 @@
   .chartBox,
   .barBox {
     width: 100%;
-    // background-color: #666;
   }
 
   .chartBox {
     display: flex;
     flex-direction: row;
+  }
+  .recentTransBox {
+    grid-column: span 2;
   }
 }
