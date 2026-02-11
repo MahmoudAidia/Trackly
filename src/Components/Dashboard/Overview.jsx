@@ -2,7 +2,9 @@ import { ChevronLeft, ChevronRight, MovingOutlined } from "@mui/icons-material";
 import WalletOutlinedIcon from "@mui/icons-material/WalletOutlined";
 import TrendingDownOutlinedIcon from "@mui/icons-material/TrendingDownOutlined";
 import "./overview.scss";
-function Overview() {
+import { formatCurrency } from "../../helpers/formatCurrency";
+function Overview({ totalBalance, totalIncome, totalExpenses }) {
+  console.log(totalExpenses, totalIncome);
   return (
     <div className="overview">
       <div className="text">
@@ -25,21 +27,23 @@ function Overview() {
           <WalletOutlinedIcon />
           <span>Total Balance</span>
         </div>
-        <h2 className="money">$2,877.02</h2>
+        <h2 className="money">{formatCurrency(totalBalance)}</h2>
         <div className="incomeExpensesBox">
           <div className="incomeBox">
             <div>
               <MovingOutlined />
               <span>Income</span>
             </div>
-            <span className="incomeMoney">$3,700.00</span>
+            <span className="incomeMoney">{formatCurrency(totalIncome)}</span>
           </div>
           <div className="expenseBox">
             <div>
               <TrendingDownOutlinedIcon />
               <span>Expenses</span>
             </div>
-            <span className="expenseMoney">$3,700.00</span>
+            <span className="expenseMoney">
+              {formatCurrency(totalExpenses)}
+            </span>
           </div>
         </div>
       </div>

@@ -1,0 +1,64 @@
+.filterBox {
+  width: 60%;
+  margin-bottom: 0;
+  button {
+    margin-bottom: 20px;
+    margin-left: 30px;
+
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f9fafb;
+
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  button:hover {
+    background-color: #eee;
+  }
+
+  .filter {
+    display: block;
+    padding: 20px;
+    margin-left: 30px;
+    background-color: #f9fafb;
+    border-radius: 10px;
+    h4 {
+      margin-bottom: 10px;
+    }
+    .type {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+      margin: 0;
+      gap: 15px;
+      background-color: #f9fafb;
+      button {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        font-weight: 700;
+        padding: 10px 20px;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+      button.active {
+        background-color: var(--primary);
+        color: #fff;
+      }
+    }
+    .dropdown {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      width: 100%;
+      outline-color: var(--primary);
+    }
+  }
+}

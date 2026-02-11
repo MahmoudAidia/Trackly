@@ -1,6 +1,6 @@
 import "./AddExpense.scss";
 import { useState } from "react";
-import Button from "../../UI/Button";
+
 import BackspaceIcon from "@mui/icons-material/Backspace";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import AirportShuttleIcon from "@mui/icons-material/AirportShuttle";
@@ -10,13 +10,16 @@ import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import SchoolIcon from "@mui/icons-material/School";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import PushPinIcon from "@mui/icons-material/PushPin";
+import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import CurrencyExchangeOutlinedIcon from "@mui/icons-material/CurrencyExchangeOutlined";
+
 import Num from "./Num";
 import { nanoid } from "@reduxjs/toolkit";
 import CategoryItem from "./CategoryItem";
 import { auth } from "../../Firebase/firebase";
-import { postData } from "../../hooks/postData";
+import { useCreateData } from "../../hooks/useCreateData";
 
-const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, ".", 0, <BackspaceIcon />];
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, ".", 0];
 const categories = [
   { name: "Food", icon: <LunchDiningIcon />, id: nanoid() },
   { name: "Transport", icon: <AirportShuttleIcon />, id: nanoid() },
@@ -27,14 +30,20 @@ const categories = [
   { name: "Entertainments", icon: <SportsEsportsIcon />, id: nanoid() },
   { name: "Other", icon: <PushPinIcon />, id: nanoid() },
 ];
+const incomeCategories = [
+  { name: "Salary", icon: <MonetizationOnOutlinedIcon />, id: 1 },
+  { name: "Freelance", icon: <CurrencyExchangeOutlinedIcon />, id: 2 },
+  { name: "Other", id: 3 },
+];
 const payments = ["Cash", "Credit Card", "Debit Card", "Wallet"];
-function AddExpense() {
+function AddExpense({ setShowModal }) {
   const [formType, setFormType] = useState("expense");
   const [money, setMoney] = useState("0");
   const [category, setCategory] = useState("");
   const [payment, setPayment] = useState("");
   const [date, setDate] = useState("");
   const [note, setNote] = useState("");
+  const { mutateAsync } = useCreateData();
 
   async function handleSubmit() {
     const currentUser = auth.currentUser;
@@ -44,13 +53,17 @@ function AddExpense() {
     }
     const newExpense = {
       value: Number(money),
-      type: category,
+      type: formType,
       userId: currentUser.uid,
       desc: note,
+      category,
       payment,
       date,
     };
-    const docRef = await postData("expense", newExpense);
+
+    const mutationObj = { collectionName: "expense", newExpense };
+    const docRef = await mutateAsync(mutationObj);
+
     if (!docRef.id) throw new Error("There is no docRef id");
     else {
       setMoney("0");
@@ -59,6 +72,7 @@ function AddExpense() {
       setNote("");
       setDate("");
     }
+    setShowModal(false);
   }
   return (
     <div className="addExpense">
@@ -86,19 +100,40 @@ function AddExpense() {
         {nums.map((item, index) => (
           <Num key={index} handleClick={setMoney} num={item} />
         ))}
+        <button
+          className="num"
+          onClick={() =>
+            setMoney((prev) =>
+              prev.slice(0, -1).length === 0 ? "0" : prev.slice(0, -1),
+            )
+          }
+        >
+          <BackspaceIcon />
+        </button>
       </div>
 
       <ul className="category">
-        {categories.map((item) => (
-          <CategoryItem
-            handleClick={setCategory}
-            category={category}
-            key={item.id}
-            name={item.name}
-          >
-            {item.icon}
-          </CategoryItem>
-        ))}
+        {formType === "income"
+          ? incomeCategories.map((item) => (
+              <CategoryItem
+                handleClick={setCategory}
+                category={category}
+                key={item.id}
+                name={item.name}
+              >
+                {item.icon}
+              </CategoryItem>
+            ))
+          : categories.map((item) => (
+              <CategoryItem
+                handleClick={setCategory}
+                category={category}
+                key={item.id}
+                name={item.name}
+              >
+                {item.icon}
+              </CategoryItem>
+            ))}
       </ul>
       <ul className="payments">
         {payments.map((item) => (

@@ -51,7 +51,7 @@ function Layout() {
       </aside>
       <Outlet />
       <Modal isOpen={showModal} onClose={setShowModal} title="Add Transaction">
-        <AddExpense />
+        <AddExpense setShowModal={setShowModal} />
       </Modal>
     </div>
   );

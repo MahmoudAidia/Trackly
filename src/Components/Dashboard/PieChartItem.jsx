@@ -1,26 +1,54 @@
-import { Pie, PieChart, Tooltip } from "recharts";
+import { Cell, Pie, PieChart, Tooltip } from "recharts";
 import { RechartsDevtools } from "@recharts/devtools";
 import ChartBullets from "./ChartBullets";
 import "./PieChartItem.scss";
 
-const data = [
-  { name: "Food", value: 400, fill: "#0088FE" },
-  { name: "Rent", value: 300, fill: "#00C49F" },
-  { name: "Transport", value: 300, fill: "#FFBB28" },
-  { name: "Entertainment", value: 200, fill: "#FF8042" },
-  { name: "Health", value: 150, fill: "#AF19FF" },
-];
-function PieChartItem() {
+const colors = {
+  Food: "#0088FE",
+  Transport: "#FFBB28",
+  Bills: "#ffe066",
+  Shopping: "#00C49F",
+  Health: "#2f9e44",
+  Education: "#1864ab",
+  Entertainment: "#FF8042",
+  Salary: "#66d9e8",
+  Freelance: "#5f3dc4",
+  Other: "#862e9c",
+};
+function PieChartItem({ expenses }) {
+  const chartData = Object.values(
+    expenses.reduce((acc, item) => {
+      acc[item.category] ??= { name: item.category, value: 0 };
+      acc[item.category].value += item.value;
+      return acc;
+    }, {}),
+  );
+
   return (
     <div className="pieChartItem">
-      <CustomActiveShapePieChart className="pieChart" />
+      <PieChart width={200} height={200}>
+        <Pie
+          data={chartData}
+          dataKey="value"
+          cx="50%"
+          cy="50%"
+          innerRadius={60}
+          outerRadius={80}
+        >
+          {chartData.map((entry, index) => (
+            <Cell key={index} fill={colors[entry.name] ?? "#ccc"} />
+          ))}
+        </Pie>
+        <Tooltip formatter={(v) => `$${v}`} />
+      </PieChart>
+
       <div className="text">
-        {data.map((item, index) => (
+        {chartData.map((item, index) => (
           <ChartBullets
             key={index}
             title={item.name}
             price={item.value}
-            color={item.fill}
+            color={colors[item.name]}
           />
         ))}
       </div>
@@ -29,38 +57,3 @@ function PieChartItem() {
 }
 
 export default PieChartItem;
-
-function CustomActiveShapePieChart({
-  isAnimationActive = true,
-  defaultIndex = undefined,
-}) {
-  return (
-    <PieChart
-      style={{
-        width: "100%",
-        maxWidth: "200px",
-        maxHeight: "80vh",
-        aspectRatio: 1,
-      }}
-      margin={{ bottom: 0 }}
-      responsive
-    >
-      <Pie
-        data={data}
-        width="100%"
-        cx="50%"
-        cy="50%"
-        innerRadius="60%"
-        outerRadius="80%"
-        fill="#8884d8"
-        dataKey="value"
-        isAnimationActive={isAnimationActive}
-      />
-      <Tooltip
-        formatter={(value) => `$${value}`}
-        cursor={{ fill: "transparent" }}
-      />
-      <RechartsDevtools />
-    </PieChart>
-  );
-}

@@ -1,0 +1,70 @@
+.transaction {
+  display: block;
+  width: 100%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  background-color: #f9fafb;
+  .searchBox {
+    background-color: #fff;
+
+    .incomeExpensesBox {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      padding: 0 30px;
+      .incomeBox,
+      .expenseBox {
+        width: 100%;
+        background-color: #ddd;
+        border-radius: 10px;
+        padding: 15px;
+        div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-bottom: 5px;
+        }
+      }
+
+      .incomeBox {
+        background-color: var(--success-tint);
+        div {
+          span {
+            font-size: 13px;
+          }
+          svg {
+            color: var(--success);
+          }
+        }
+        .incomeMoney {
+          color: var(--success);
+        }
+      }
+      .expenseBox {
+        background-color: #ffe3e3;
+        div {
+          span {
+            font-size: 13px;
+          }
+          svg {
+            color: var(--danger);
+          }
+        }
+        .expenseMoney {
+          color: var(--danger);
+        }
+      }
+
+      .expenseMoney,
+      .incomeMoney {
+        font-weight: 700;
+        font-size: 20px;
+      }
+    }
+  }
+  .transactionList {
+    padding-top: 50px;
+    list-style: none;
+  }
+}

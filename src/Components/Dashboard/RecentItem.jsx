@@ -1,17 +1,17 @@
-function RecentItem({ name, date, price, payment, children, icon }) {
+function RecentItem({ value, date, desc, payment, children, category }) {
   return (
     <li className="recentitem">
       <div>
         {children}
         <div>
-          <span>{name}</span>
-          <span className="date">{date}</span>
+          <span>{category}</span>
+          <span className="date">{desc}</span>
         </div>
       </div>
 
       <div className="price">
-        <span>${price}</span>
-        <span className="payment">{payment}</span>
+        <span>${value}</span>
+        <span className="payment">{date}</span>
       </div>
     </li>
   );

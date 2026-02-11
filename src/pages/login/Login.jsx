@@ -2,25 +2,26 @@ import { Link, useNavigate } from "react-router";
 import "./Login.scss";
 import ArrowRightAltOutlinedIcon from "@mui/icons-material/ArrowRightAltOutlined";
 import Input from "./Input";
-import Button from "../../UI/Button";
 import SignupWith from "../signup/SignupWith";
-import { useState } from "react";
-import { auth } from "../../Firebase/firebase";
-import { loginUser } from "../../hooks/login";
+import { useContext, useState } from "react";
+import { loginUser } from "../../api/login";
+import { useAppContext } from "../../Context/AppContext";
 
 function Login() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const { login } = useAppContext();
+  const navigate = useNavigate();
   async function handleLogin() {
     const user = await loginUser(email, password);
-    if (!user.email) {
+    if (!user?.uid) {
+      setEmail("");
+      setPassword("");
       console.error("couldn't login");
       return;
-    } else {
-      navigate("/app/dashboard");
     }
+    login(user.uid);
+    navigate("/app/dashboard");
   }
 
   return (
