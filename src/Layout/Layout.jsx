@@ -5,14 +5,18 @@ import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlin
 import MovingOutlinedIcon from "@mui/icons-material/MovingOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import Button from "../UI/Button";
+import LogoutIcon from "@mui/icons-material/Logout";
 import "./Layout.scss";
 import { useState } from "react";
 import Modal from "../UI/Modal";
 import AddExpense from "../Components/AddExpense/AddExpense";
+import { useAppContext } from "../Context/AppContext";
+import { useQueryClient } from "@tanstack/react-query";
 function Layout() {
   const [showModal, setShowModal] = useState(false);
+  const { logout } = useAppContext();
 
+  const queryClient = useQueryClient();
   return (
     <div className="layout">
       <aside>
@@ -43,6 +47,16 @@ function Layout() {
           <PersonOutlineOutlinedIcon />
           <span>Profile</span>
         </Link>
+        <button
+          className="logout"
+          onClick={() => {
+            queryClient.clear();
+            logout();
+          }}
+        >
+          <LogoutIcon />
+          <span>Log Out</span>
+        </button>
 
         <button onClick={setShowModal} className="addTransaction">
           <AddCircleOutlineIcon />

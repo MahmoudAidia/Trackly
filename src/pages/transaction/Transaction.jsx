@@ -7,14 +7,20 @@ import Search from "../../Components/Search/Search";
 import Filter from "../../Components/Filter/Filter";
 import TrendingDownOutlinedIcon from "@mui/icons-material/TrendingDownOutlined";
 import { formatCurrency } from "../../helpers/formatCurrency";
+import { useAppContext } from "../../Context/AppContext";
 
 function Transaction() {
+  const { userId } = useAppContext();
   const [query, setQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState({
     active: "all",
     category: "All",
   });
-  let { data: expenses, isLoading, isError, error } = useFetchData("expense");
+
+  let { data: expenses, isLoading } = useFetchData({
+    collectionName: "expense",
+    userId,
+  });
 
   if (activeFilter.active !== "all") {
     expenses = expenses?.filter((item) => item.type === activeFilter.active);

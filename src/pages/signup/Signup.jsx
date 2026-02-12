@@ -7,8 +7,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../../Firebase/firebase.js";
+import { useAppContext } from "../../Context/AppContext.jsx";
 
 function Signup() {
+  const { login } = useAppContext();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,10 +34,10 @@ function Signup() {
       console.log("Signup Failed", err);
       return;
     }
+    login(userCredential.user.uid);
     await updateProfile(userCredential.user, {
       displayName: name,
     });
-
     navigate("/app/dashboard");
   }
 

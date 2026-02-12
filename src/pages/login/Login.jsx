@@ -12,12 +12,13 @@ function Login() {
   const [password, setPassword] = useState("");
   const { login } = useAppContext();
   const navigate = useNavigate();
+
   async function handleLogin() {
     const user = await loginUser(email, password);
     if (!user?.uid) {
       setEmail("");
       setPassword("");
-      console.error("couldn't login");
+      console.error("couldn't login. Email or password is wrong!!!");
       return;
     }
     login(user.uid);

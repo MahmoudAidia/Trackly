@@ -1,3 +1,4 @@
+import { categoriesIcons } from "../../helpers/constants";
 import RecentItem from "./RecentItem";
 import "./RecentTransactions.scss";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
@@ -17,7 +18,7 @@ function RecentTransactions({ expenses }) {
             value={item.value}
             icon={item.icon}
           >
-            {item.icon}
+            {categoriesIcons[item.category]}
           </RecentItem>
         ))}
       </ul>

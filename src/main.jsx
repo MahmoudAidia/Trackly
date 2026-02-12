@@ -46,11 +46,11 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <AppProvider>
-        <RouterProvider router={router} />
-      </AppProvider>
-    </QueryClientProvider>
-  </StrictMode>,
+  // <StrictMode>
+  <QueryClientProvider client={queryClient}>
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
+  </QueryClientProvider>,
+  // </StrictMode>,
 );

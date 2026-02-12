@@ -2,13 +2,19 @@ import BarChartItem from "../Components/Dashboard/BarChartItem";
 import Overview from "../Components/Dashboard/Overview";
 import PieChartItem from "../Components/Dashboard/PieChartItem";
 import RecentTransactions from "../Components/Dashboard/RecentTransactions";
+import { useAppContext } from "../Context/AppContext";
 import { getData } from "../api/getData";
 import { useFetchData } from "../hooks/useFetchData";
 
 import "./Dashboard.scss";
 
 function Dashboard() {
-  let { data: expenses, isLoading, isError, error } = useFetchData("expense");
+  const { userId } = useAppContext();
+  let { data: expenses, isLoading } = useFetchData({
+    collectionName: "expense",
+    userId,
+  });
+
   const totalBalance = expenses?.reduce((acc, item) => item.value + acc, 0);
   let totalIncome = 0,
     totalExpenses = 0;

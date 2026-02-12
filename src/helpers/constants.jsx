@@ -31,3 +31,41 @@ export const incomeCategories = [
 ];
 
 export const payments = ["Cash", "Credit Card", "Debit Card", "Wallet"];
+
+// export const categoriesIcons = {
+//   Food: <LunchDiningIcon />,
+//   Transport: <AirportShuttleIcon />,
+//   Bills: <EmojiObjectsIcon />,
+//   Shopping: <ShoppingCartIcon />,
+//   Health: <HealthAndSafetyIcon />,
+//   Education: <SchoolIcon />,
+//   Entertainment: <SportsEsportsIcon />,
+//   Salary: <MonetizationOnOutlinedIcon />,
+//   Freelance: <CurrencyExchangeOutlinedIcon />,
+//   Other: <PushPinIcon />,
+// };
+
+export const categoriesIcons = {
+  Food: "🥪",
+  Transport: "🚗",
+  Bills: "💰",
+  Shopping: "👜",
+  Health: "⚕️",
+  Education: "📚",
+  Entertainment: "🎮",
+  Salary: "🤑",
+  Freelance: "🫰",
+  Other: "💰",
+};
+export const colors = {
+  Food: "#0088FE",
+  Transport: "#FFBB28",
+  Bills: "#ffe066",
+  Shopping: "#00C49F",
+  Health: "#2f9e44",
+  Education: "#1864ab",
+  Entertainment: "#FF8042",
+  Salary: "#66d9e8",
+  Freelance: "#5f3dc4",
+  Other: "#862e9c",
+};

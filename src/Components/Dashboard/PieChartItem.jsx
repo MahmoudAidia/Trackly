@@ -2,19 +2,8 @@ import { Cell, Pie, PieChart, Tooltip } from "recharts";
 import { RechartsDevtools } from "@recharts/devtools";
 import ChartBullets from "./ChartBullets";
 import "./PieChartItem.scss";
+import { colors } from "../../helpers/constants";
 
-const colors = {
-  Food: "#0088FE",
-  Transport: "#FFBB28",
-  Bills: "#ffe066",
-  Shopping: "#00C49F",
-  Health: "#2f9e44",
-  Education: "#1864ab",
-  Entertainment: "#FF8042",
-  Salary: "#66d9e8",
-  Freelance: "#5f3dc4",
-  Other: "#862e9c",
-};
 function PieChartItem({ expenses }) {
   const chartData = Object.values(
     expenses.reduce((acc, item) => {
