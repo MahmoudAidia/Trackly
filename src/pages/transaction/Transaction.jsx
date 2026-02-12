@@ -1,13 +1,14 @@
-import "./Transaction.scss";
-import { useFetchData } from "../../hooks/useFetchData";
-import { MovingOutlined } from "@mui/icons-material";
 import { useState } from "react";
+import { useAppContext } from "../../Context/AppContext";
+import { useFetchDataByDate } from "../../hooks/useFetchDataByDate";
+import { MovingOutlined } from "@mui/icons-material";
+import { formatCurrency } from "../../helpers/formatCurrency";
 import ExpenseItem from "../../Components/ExpenseItem/ExpenseItem";
 import Search from "../../Components/Search/Search";
 import Filter from "../../Components/Filter/Filter";
 import TrendingDownOutlinedIcon from "@mui/icons-material/TrendingDownOutlined";
-import { formatCurrency } from "../../helpers/formatCurrency";
-import { useAppContext } from "../../Context/AppContext";
+import "./Transaction.scss";
+import ExpenseBlock from "../../Components/AddExpense/ExpenseBlock";
 
 function Transaction() {
   const { userId } = useAppContext();
@@ -17,39 +18,42 @@ function Transaction() {
     category: "All",
   });
 
-  let { data: expenses, isLoading } = useFetchData({
+  let { data: expenses, isLoading } = useFetchDataByDate({
     collectionName: "expense",
     userId,
   });
 
+  console.log(expenses);
   if (activeFilter.active !== "all") {
-    expenses = expenses?.filter((item) => item.type === activeFilter.active);
+    expenses = expenses?.filter(
+      (item) => item.expenses.type === activeFilter.active,
+    );
   }
   if (activeFilter.category !== "All") {
     expenses = expenses?.filter(
-      (item) => item.category === activeFilter.category,
+      (item) => item.expenses.category === activeFilter.category,
     );
   }
   if (query) {
     expenses = expenses?.filter((item) => {
       if (
-        item.category.toLowerCase().includes(query.toLowerCase()) ||
-        item.date.toLowerCase().includes(query.toLowerCase()) ||
-        item.desc.toLowerCase().includes(query.toLowerCase()) ||
-        item.payment.toLowerCase().includes(query.toLowerCase()) ||
-        item.value === query
+        item.expenses.category.toLowerCase().includes(query.toLowerCase()) ||
+        item.expenses.date.toLowerCase().includes(query.toLowerCase()) ||
+        item.expenses.desc.toLowerCase().includes(query.toLowerCase()) ||
+        item.expenses.payment.toLowerCase().includes(query.toLowerCase()) ||
+        item.expenses.value === query
       )
         return item;
     });
   }
-
   // Derived State
   let totalExpensesValue = 0;
   let totalIncomeValue = 0;
-  expenses?.filter((item) => {
-    if (item.type === "expense") totalExpensesValue += item.value;
-    else totalIncomeValue += item.value;
-  });
+  // expenses?.filter((item) => {
+  //   if (item.expenses.type === "expense")
+  //     totalExpensesValue += item.expenses.reduce((acc, item) => item + acc, 0);
+  //   else totalIncomeValue += item.expenses.reduce((acc, item) => item + acc, 0);
+  // });
 
   return (
     <div className="transaction">
@@ -84,15 +88,7 @@ function Transaction() {
           <p>Loading....</p>
         ) : (
           expenses?.map((item) => (
-            <ExpenseItem
-              key={item.id}
-              date={item.date}
-              category={item.category}
-              desc={item.desc}
-              payment={item.payment}
-              value={item.value}
-              icon={item.icon}
-            />
+            <ExpenseBlock dateTitle={item.date} expenses={item.expenses} />
           ))
         )}
       </ul>

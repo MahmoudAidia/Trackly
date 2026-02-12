@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { categoriesIcons, colors } from "../../helpers/constants.jsx";
 import "./ExpenseItem.scss";
 import { Timestamp } from "firebase/firestore";
@@ -24,7 +25,7 @@ function ExpenseItem({ category, desc, value, date, payment, icon }) {
 
       <div className="price">
         <span>${value}</span>
-        <span className="payment">{date}</span>
+        <span className="payment">{format(date, "MMMM d, yyyy")}</span>
       </div>
     </li>
   );
