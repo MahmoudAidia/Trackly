@@ -18,6 +18,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import CategoryItem from "./CategoryItem";
 import { auth } from "../../Firebase/firebase";
 import { useCreateData } from "../../hooks/useCreateData";
+import Categories from "../../UI/Categories";
 
 const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, ".", 0];
 const categories = [
@@ -43,7 +44,7 @@ function AddExpense({ setShowModal }) {
   const [payment, setPayment] = useState("");
   const [date, setDate] = useState("");
   const [note, setNote] = useState("");
-  const { mutateAsync } = useCreateData();
+  const { mutateAsync } = useCreateData({ collectionName: "expense" });
 
   async function handleSubmit() {
     const currentUser = auth.currentUser;
@@ -61,8 +62,7 @@ function AddExpense({ setShowModal }) {
       date,
     };
 
-    const mutationObj = { collectionName: "expense", newExpense };
-    const docRef = await mutateAsync(mutationObj);
+    const docRef = await mutateAsync(newExpense);
 
     if (!docRef.id) throw new Error("There is no docRef id");
     else {
@@ -112,29 +112,12 @@ function AddExpense({ setShowModal }) {
         </button>
       </div>
 
-      <ul className="category">
-        {formType === "income"
-          ? incomeCategories.map((item) => (
-              <CategoryItem
-                handleClick={setCategory}
-                category={category}
-                key={item.id}
-                name={item.name}
-              >
-                {item.icon}
-              </CategoryItem>
-            ))
-          : categories.map((item) => (
-              <CategoryItem
-                handleClick={setCategory}
-                category={category}
-                key={item.id}
-                name={item.name}
-              >
-                {item.icon}
-              </CategoryItem>
-            ))}
-      </ul>
+      <Categories
+        formType={formType}
+        setCategory={setCategory}
+        categories={categories}
+        category={category}
+      />
       <ul className="payments">
         {payments.map((item) => (
           <CategoryItem

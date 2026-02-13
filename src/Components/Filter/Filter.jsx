@@ -30,7 +30,18 @@ function Filter({ activeFilter, setActiveFilter }) {
 
   return (
     <div className="filterBox">
-      <button onClick={() => setDisplayFilter((prev) => !prev)}>
+      <button
+        onClick={() => {
+          setDisplayFilter((prev) => {
+            if (prev === true) {
+              setActiveFilter({ category: "All", active: "all" });
+              return false;
+            } else {
+              return true;
+            }
+          });
+        }}
+      >
         <FilterAltOutlinedIcon />
         <span>Filter</span>
         {displayFilter ? <ExpandLessIcon /> : <ExpandMoreIcon />}

@@ -21,7 +21,7 @@ function PieChartItem({ expenses }) {
           dataKey="value"
           cx="50%"
           cy="50%"
-          innerRadius={60}
+          innerRadius={50}
           outerRadius={80}
         >
           {chartData.map((entry, index) => (

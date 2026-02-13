@@ -1,3 +1,8 @@
+.loaderBox {
+  height: 100vh;
+  width: 100%;
+}
+
 .dashboard {
   width: 85vw;
   margin-bottom: 0;
@@ -29,4 +34,10 @@
   .recentTransBox {
     grid-column: span 2;
   }
+}
+
+.centerLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

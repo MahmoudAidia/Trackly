@@ -1,9 +1,7 @@
-import { Padding } from "@mui/icons-material";
 import { categoriesIcons, colors } from "../../helpers/constants";
-import { getReadableColor } from "../../helpers/getReadableColor";
 import { formatCurrency } from "../../helpers/formatCurrency";
 
-function RecentItem({ value, date, desc, children, category }) {
+function RecentItem({ value, date, desc, children, category, payment }) {
   const style = {
     backgroundColor: colors[category],
     opacity: ".8",
@@ -24,7 +22,7 @@ function RecentItem({ value, date, desc, children, category }) {
 
       <div className="price">
         <span>{formatCurrency(value)}</span>
-        <span className="payment">{date}</span>
+        <span className="payment">{payment}</span>
       </div>
     </li>
   );

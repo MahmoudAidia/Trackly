@@ -6,7 +6,6 @@
   background-color: #f9fafb;
   .searchBox {
     background-color: #fff;
-
     .incomeExpensesBox {
       display: flex;
       flex-direction: row;
@@ -66,5 +65,9 @@
   .transactionList {
     padding-top: 50px;
     list-style: none;
+    .loaderBox {
+      width: 100%;
+      height: 100%;
+    }
   }
 }

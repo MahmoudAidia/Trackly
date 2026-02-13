@@ -1,9 +1,9 @@
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 
-export async function postData({ collectionName, newExpense }) {
+export async function postData({ collectionName, data }) {
   try {
-    const docRef = await addDoc(collection(db, collectionName), newExpense);
+    const docRef = await addDoc(collection(db, collectionName), data);
     return {
       id: docRef.id,
     };

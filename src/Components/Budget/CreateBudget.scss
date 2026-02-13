@@ -1,0 +1,67 @@
+.createBudget {
+  margin-bottom: 0;
+  h4 {
+    margin-bottom: 20px;
+  }
+  .category {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .limit {
+    position: relative;
+    h4 {
+      margin-bottom: 5px;
+      margin-top: 15px;
+    }
+
+    input {
+      padding: 20px 0;
+      padding-left: 30px;
+      font-size: 20px;
+      outline-offset: 2px;
+      outline-width: 2px;
+    }
+
+    span {
+      position: absolute;
+      top: 63px;
+      left: 10px;
+      font-size: 20px;
+      color: var(--text-tint);
+    }
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 0;
+    button {
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 18px;
+      font-weight: 600;
+      border: 1px solid var(--text-tint);
+      background-color: #fff;
+      border-radius: 10px;
+    }
+    .cancel {
+      cursor: pointer;
+    }
+    .create {
+      background-color: #d1d5dcd5;
+      color: #fff;
+      cursor: no-drop;
+    }
+    .create.active {
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:first-child:hover {
+      background-color: #d1d5dc55;
+    }
+  }
+}

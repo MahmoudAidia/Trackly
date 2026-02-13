@@ -3,6 +3,7 @@ import Overview from "../Components/Dashboard/Overview";
 import PieChartItem from "../Components/Dashboard/PieChartItem";
 import RecentTransactions from "../Components/Dashboard/RecentTransactions";
 import { useAppContext } from "../Context/AppContext";
+import Loader from "../UI/Loader";
 import { getData } from "../api/getData";
 import { useFetchData } from "../hooks/useFetchData";
 
@@ -14,16 +15,20 @@ function Dashboard() {
     collectionName: "expense",
     userId,
   });
+  if (isLoading)
+    return (
+      <div className="loaderBox">
+        <Loader />
+      </div>
+    );
 
-  const totalBalance = expenses?.reduce((acc, item) => item.value + acc, 0);
   let totalIncome = 0,
     totalExpenses = 0;
   expenses?.filter((item) => {
     if (item.type === "income") totalIncome += item.value;
     else if (item.type === "expense") totalExpenses += item.value;
   });
-
-  if (isLoading) return <p>Loading</p>;
+  const totalBalance = totalIncome - totalExpenses;
 
   return (
     <div className="dashboard">

@@ -25,7 +25,7 @@ function ExpenseItem({ category, desc, value, date, payment, icon }) {
 
       <div className="price">
         <span>${value}</span>
-        <span className="payment">{format(date, "MMMM d, yyyy")}</span>
+        <span className="payment">{payment}</span>
       </div>
     </li>
   );

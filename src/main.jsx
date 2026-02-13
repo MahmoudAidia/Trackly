@@ -13,6 +13,7 @@ import { queryClient } from "./lib/QueryClient";
 import Transaction from "./pages/transaction/Transaction";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./main.scss";
+import Budget from "./pages/budget/Budget";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "transactions",
         element: <Transaction />,
+      },
+      {
+        path: "budgets",
+        element: <Budget />,
       },
     ],
   },
