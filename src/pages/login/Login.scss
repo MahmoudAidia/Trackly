@@ -4,6 +4,7 @@
   margin-top: 100px;
   display: flex;
   flex-direction: column;
+  background-color: #f4f4ff;
   .loginHeader {
     margin-bottom: 20px;
     h2 {
@@ -27,13 +28,14 @@
       font-weight: 600;
     }
     input {
+      background-color: #f4f4ff;
       padding: 10px 20px;
       border-radius: 5px;
       border: 1px solid var(--text-tint);
       font-size: 16px;
     }
     input:focus {
-      outline: 1px solid var(--primary);
+      outline: 3px solid var(--primary);
       outline-offset: 1px;
     }
   }

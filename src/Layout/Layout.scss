@@ -1,9 +1,14 @@
 .layout {
   display: flex;
   flex-direction: row;
-
+  margin-bottom: 0;
+  .app {
+    width: 85vw;
+    margin-left: 18vw;
+  }
   aside {
     position: relative;
+    position: fixed;
     margin-top: 40px;
     margin-right: 20px;
     width: 15vw;

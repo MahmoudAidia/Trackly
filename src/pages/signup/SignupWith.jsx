@@ -23,7 +23,6 @@ function SignupWith() {
 
       <div className="gmailBtn">
         <button onClick={signupWithGoogle}>Google</button>
-        <button>Apple</button>
       </div>
     </div>
   );

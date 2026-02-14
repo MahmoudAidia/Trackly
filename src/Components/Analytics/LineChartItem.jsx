@@ -9,6 +9,7 @@ import {
 } from "recharts";
 import { RechartsDevtools } from "@recharts/devtools";
 import "./LineChartItem.scss";
+import { formatCurrency } from "../../helpers/formatCurrency";
 function LineChartItem({ data }) {
   return (
     <div className="lineChartItem">
@@ -39,7 +40,18 @@ const LineCharts = ({ isAnimationActive = true, data }) => {
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="month" />
       <YAxis width="auto" />
-      <Tooltip />
+      <Tooltip
+        contentStyle={{
+          background: "linear-gradient(to bottom right, #5238f6, #9515fa)",
+          borderRadius: 10,
+          border: "none",
+        }}
+        itemStyle={{ color: "#fff", fontWeight: "bold" }}
+        labelStyle={{ color: "#fff" }}
+        formatter={(value, name) => {
+          return [formatCurrency(value), name];
+        }}
+      />
       <Legend verticalAlign="top" align="center" />
       <Line
         strokeWidth={4}

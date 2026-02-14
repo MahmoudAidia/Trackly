@@ -22,6 +22,7 @@ const categories = [
   { name: "Education", icon: <SchoolIcon />, id: 6 },
   { name: "Entertainments", icon: <SportsEsportsIcon />, id: 7 },
   { name: "Salary", icon: <SportsEsportsIcon />, id: 8 },
+  { name: "Freelance", icon: <SportsEsportsIcon />, id: 8 },
   { name: "Other", icon: <PushPinIcon />, id: 9 },
 ];
 

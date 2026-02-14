@@ -44,7 +44,7 @@ function Budget() {
       expensePerCategory[item.category] = [item.value];
     }
   }
-  console.log(expensePerCategory);
+  const balance = totalBudgets - totalExpenses;
 
   return (
     <div className="budget">
@@ -63,7 +63,8 @@ function Budget() {
           </p>
           <GrothBar percent={percent} />
           <p className="remain">
-            {formatCurrency(totalBudgets - totalExpenses)} remaining
+            {balance > 0 ? formatCurrency(balance) : formatCurrency(0)}{" "}
+            remaining
           </p>
         </div>
       </div>

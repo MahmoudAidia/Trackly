@@ -25,13 +25,20 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+    color: var(--text);
+
     button {
-      width: 50%;
+      width: 100%;
+      font-weight: 400;
+      font-size: 18px;
       padding: 18px 0;
       border-radius: 10px;
       border: 1px solid var(--text-tint);
       background-color: var(--background);
+      color: var(--text);
       cursor: pointer;
+      background-color: #f4f4ff;
+      transition: all 0.3s;
     }
     button:hover {
       background-color: #fff;

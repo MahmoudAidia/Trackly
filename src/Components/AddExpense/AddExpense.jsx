@@ -28,7 +28,7 @@ const categories = [
   { name: "Shopping", icon: <ShoppingCartIcon />, id: nanoid() },
   { name: "Health", icon: <HealthAndSafetyIcon />, id: nanoid() },
   { name: "Education", icon: <SchoolIcon />, id: nanoid() },
-  { name: "Entertainments", icon: <SportsEsportsIcon />, id: nanoid() },
+  { name: "Entertainment", icon: <SportsEsportsIcon />, id: nanoid() },
   { name: "Other", icon: <PushPinIcon />, id: nanoid() },
 ];
 const incomeCategories = [

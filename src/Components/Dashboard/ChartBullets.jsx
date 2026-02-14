@@ -7,7 +7,7 @@ function ChartBullets({ title, price, color }) {
         <span style={{ backgroundColor: color }}></span>
         <h4>{title}</h4>
       </div>
-      <span>{formatCurrency(price)}</span>
+      <span className="money">{formatCurrency(price)}</span>
     </div>
   );
 }

@@ -29,7 +29,7 @@ function BarChartItem({ expenses }) {
 
   return (
     <div className="barChartItem">
-      <ResponsiveContainer width="100%" height={200}>
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data}>
           <XAxis
             dataKey="day"

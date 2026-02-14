@@ -5,7 +5,7 @@ function CategoryItem({ name, children, handleClick, category }) {
       className={`categoryItem ${category === name ? "active" : ""} ${children === undefined ? "colorName" : ""}`}
       onClick={() => handleClick(name)}
     >
-      {children}
+      <span className="icon">{children}</span>
       <span>{name}</span>
     </li>
   );

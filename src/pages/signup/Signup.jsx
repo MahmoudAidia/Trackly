@@ -2,7 +2,7 @@ import SignupWith from "../signup/SignupWith.jsx";
 import Button from "../../UI/Button.jsx";
 import { ChevronRight } from "@mui/icons-material";
 import Input from "../login/Input.jsx";
-import "./signup.scss";
+import "./Signup.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";

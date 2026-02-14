@@ -63,7 +63,9 @@ function Layout() {
           <span>Add Transaction</span>
         </button>
       </aside>
-      <Outlet />
+      <section className="app">
+        <Outlet />
+      </section>
       <Modal isOpen={showModal} onClose={setShowModal} title="Add Transaction">
         <AddExpense setShowModal={setShowModal} />
       </Modal>
