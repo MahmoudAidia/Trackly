@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./modal.scss";
+import "./Modal.scss";
 
 function Modal({ isOpen, onClose, title, children }) {
   useEffect(() => {
