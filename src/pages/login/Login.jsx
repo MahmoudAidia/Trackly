@@ -3,9 +3,11 @@ import "./Login.scss";
 import ArrowRightAltOutlinedIcon from "@mui/icons-material/ArrowRightAltOutlined";
 import Input from "./Input";
 import SignupWith from "../signup/SignupWith";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { loginUser } from "../../api/login";
 import { useAppContext } from "../../Context/AppContext";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../Firebase/firebase";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -22,7 +24,7 @@ function Login() {
       console.error("couldn't login. Email or password is wrong!!!");
       return;
     }
-    login(user.uid);
+    // login(user.uid);
     navigate("/app/dashboard");
   }
 

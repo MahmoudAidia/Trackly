@@ -6,7 +6,7 @@ import { colors } from "../../helpers/constants";
 
 function PieChartItem({ expenses }) {
   const chartData = Object.values(
-    expenses.reduce((acc, item) => {
+    expenses?.reduce((acc, item) => {
       acc[item.category] ??= { name: item.category, value: 0 };
       acc[item.category].value += item.value;
       return acc;
