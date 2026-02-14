@@ -13,7 +13,8 @@ function Login() {
   const { login } = useAppContext();
   const navigate = useNavigate();
 
-  async function handleLogin() {
+  async function handleLogin(e) {
+    e.preventDefault();
     const user = await loginUser(email, password);
     if (!user?.uid) {
       setEmail("");
@@ -26,7 +27,7 @@ function Login() {
   }
 
   return (
-    <div className="login">
+    <form className="login">
       <div className="loginHeader">
         <h2>Welcome back</h2>
         <p>Sign in to continue tracking</p>
@@ -40,7 +41,7 @@ function Login() {
       <Input
         type="password"
         placeholder="Enter your password"
-        name="PassWord"
+        name="Password"
         handleChange={setPassword}
       />
       <Link>Forgot Password?</Link>
@@ -53,7 +54,7 @@ function Login() {
         <p>Don't have an account? </p>
         <Link to="/sign">Sign Up</Link>
       </div>
-    </div>
+    </form>
   );
 }
 

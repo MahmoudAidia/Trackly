@@ -1,5 +1,5 @@
 import "./ChartBullets.scss";
-
+import { formatCurrency } from "../../helpers/formatCurrency";
 function ChartBullets({ title, price, color }) {
   return (
     <div className="chartBullets">
@@ -7,7 +7,7 @@ function ChartBullets({ title, price, color }) {
         <span style={{ backgroundColor: color }}></span>
         <h4>{title}</h4>
       </div>
-      <span>{price}$</span>
+      <span>{formatCurrency(price)}</span>
     </div>
   );
 }

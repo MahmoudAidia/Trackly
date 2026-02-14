@@ -1,0 +1,52 @@
+.loaderBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.analytics {
+  background-color: #f9fafb;
+  width: 100%;
+  .header {
+    padding-left: 30px;
+    h4 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      margin-top: 40px;
+    }
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: #f3f4f6;
+      padding: 5px 5px;
+      border-radius: 10px;
+      font-weight: 500;
+      width: 300px;
+      button {
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        cursor: pointer;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 10px;
+        background-color: #f3f4f6;
+      }
+      button.active {
+        background-color: #fff;
+      }
+    }
+  }
+  .body {
+    width: 100%;
+    .cardContainer {
+      gap: 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

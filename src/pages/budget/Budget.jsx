@@ -23,7 +23,12 @@ function Budget() {
     userId,
   });
 
-  if (isLoadingBudgets || isLoadingExpenses) return <Loader />;
+  if (isLoadingBudgets || isLoadingExpenses)
+    return (
+      <div className="loaderBox">
+        <Loader />;
+      </div>
+    );
 
   const totalBudgets = budgets?.reduce(
     (acc, item) => Number(item.limit) + acc,

@@ -14,6 +14,7 @@ import Transaction from "./pages/transaction/Transaction";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./main.scss";
 import Budget from "./pages/budget/Budget";
+import Analytics from "./pages/analytics/Analytics";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "budgets",
         element: <Budget />,
+      },
+      {
+        path: "analytics",
+        element: <Analytics />,
       },
     ],
   },

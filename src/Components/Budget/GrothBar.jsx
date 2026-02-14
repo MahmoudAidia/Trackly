@@ -5,7 +5,7 @@ function GrothBar({ percent }) {
     <div className="growthContainer">
       <div className="box">
         <div
-          className={`growthBar ${percent > 50 ? "danger" : "normal"}`}
+          className={`growthBar ${percent > 80 ? "danger" : "normal"}`}
           style={{
             width: `${percent}%`,
           }}

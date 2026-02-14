@@ -116,6 +116,7 @@ function AddExpense({ setShowModal }) {
         formType={formType}
         setCategory={setCategory}
         categories={categories}
+        incomeCategories={incomeCategories}
         category={category}
       />
       <ul className="payments">
