@@ -1,6 +1,7 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/firebase";
+import Loader from "../UI/Loader";
 
 const AppContext = createContext(null);
 
@@ -28,6 +29,13 @@ export const AppProvider = ({ children }) => {
     });
     return unsubscribe;
   }, []);
+
+  // if (loading)
+  //   return (
+  //     <div className="refresh">
+  //       <Loader />
+  //     </div>
+  //   );
 
   return (
     <AppContext.Provider

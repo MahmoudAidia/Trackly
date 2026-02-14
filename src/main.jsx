@@ -15,6 +15,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./main.scss";
 import Budget from "./pages/budget/Budget";
 import Analytics from "./pages/analytics/Analytics";
+import Profile from "./pages/profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "analytics",
         element: <Analytics />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },
