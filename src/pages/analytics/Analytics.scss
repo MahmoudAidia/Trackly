@@ -5,10 +5,16 @@
   justify-content: center;
 }
 .analytics {
-  background-color: #f9fafb;
+  background-color: #f4f4ff;
   width: 100%;
+  gap: 10px;
   .header {
+    background-color: #fff;
     padding-left: 30px;
+    border-radius: 10px;
+    // height: 50vh;
+    // padding-bottom: 150px;
+    margin-bottom: 0;
     h4 {
       font-size: 30px;
       margin-bottom: 10px;
