@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronRight, MovingOutlined } from "@mui/icons-material";
 import WalletOutlinedIcon from "@mui/icons-material/WalletOutlined";
 import TrendingDownOutlinedIcon from "@mui/icons-material/TrendingDownOutlined";
-import "./overview.scss";
+import "./Overview.scss";
 import { formatCurrency } from "../../helpers/formatCurrency";
 function Overview({ totalBalance, totalIncome, totalExpenses }) {
   console.log(totalExpenses, totalIncome);
