@@ -72,8 +72,7 @@ function Analytics() {
           <button>Monthly</button>
           <button>Yearly</button>
         </div>
-      </div>
-      <div className="body">
+
         <div className="cardContainer">
           <Card
             value={totalIncome}
@@ -94,26 +93,28 @@ function Analytics() {
             bgc={"#DBEAFE"}
           />
         </div>
+      </div>
+      <div className="body">
         <LineChartItem data={lineChartData} />
-        <div className="spendings">
-          <div className="chartAndBullet">
-            <SpendingChart data={expensePerCategory} />
-            <div className="bulletBox">{bullets.map((item) => item)}</div>
-          </div>
-          <div className="topSpending">
-            <h6>
-              <CalendarMonth /> This Month
-            </h6>
-            <h4>Top Spending Category</h4>
-            <div className="box">
-              <span>{categoriesIcons[topSpending.category]}</span>
-              <div>
-                <h3>{topSpending.category}</h3>
-                <h6>{formatCurrency(topSpending.value)} spent</h6>
-              </div>
+        {/* <div className="spendings"> */}
+        <div className="chartAndBullet">
+          <SpendingChart data={expensePerCategory} />
+          <div className="bulletBox">{bullets.map((item) => item)}</div>
+        </div>
+        <div className="topSpending">
+          <h6>
+            <CalendarMonth /> This Month
+          </h6>
+          <h4>Top Spending Category</h4>
+          <div className="box">
+            <span>{categoriesIcons[topSpending.category]}</span>
+            <div>
+              <h3>{topSpending.category}</h3>
+              <h6>{formatCurrency(topSpending.value)} spent</h6>
             </div>
           </div>
         </div>
+        {/* </div> */}
 
         <TwoBarChart data={lineChartData} />
       </div>

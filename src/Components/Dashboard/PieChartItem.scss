@@ -9,9 +9,31 @@
   padding: 20px;
   border-radius: 10px;
   height: auto;
+  .chartBox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    div {
+      margin-bottom: 0;
+    }
+  }
   .pieChart,
   .text {
-    flex: 1;
+    width: 100%;
     margin-bottom: 0;
+  }
+}
+
+@media (max-width: 780px) {
+  .pieChartItem {
+    flex-direction: column;
+    .chartBox {
+      div {
+        width: 400px;
+        height: 400px;
+      }
+    }
   }
 }

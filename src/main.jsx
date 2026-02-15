@@ -12,10 +12,10 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/QueryClient";
 import Transaction from "./pages/transaction/Transaction";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import "./main.scss";
 import Budget from "./pages/budget/Budget";
 import Analytics from "./pages/analytics/Analytics";
 import Profile from "./pages/profile/Profile";
+import "./main.scss";
 
 const router = createBrowserRouter([
   {
@@ -54,10 +54,6 @@ const router = createBrowserRouter([
         path: "analytics",
         element: <Analytics />,
       },
-      {
-        path: "profile",
-        element: <Profile />,
-      },
     ],
   },
 ]);
@@ -68,7 +64,7 @@ createRoot(document.getElementById("root")).render(
       <AppProvider>
         <RouterProvider router={router} />
       </AppProvider>
-      <ReactQueryDevtools initialIsOpen={true} position="right" />
+      {/* <ReactQueryDevtools initialIsOpen={false} position="right" /> */}
     </QueryClientProvider>
     ,
   </StrictMode>,

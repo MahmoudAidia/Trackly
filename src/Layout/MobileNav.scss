@@ -1,0 +1,90 @@
+.mobileNav {
+  visibility: hidden;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  right: 50%;
+  transform: translate(50%);
+  margin-bottom: 0;
+  z-index: 1000;
+
+  div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+    gap: auto;
+    a:link,
+    a:visited {
+      font-size: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      padding: 5px;
+      border-radius: 10px;
+    }
+    a:hover,
+    a:active {
+      background-color: #11182708;
+    }
+
+    a:focus {
+      color: var(--primary);
+      background-color: #4e46e51b;
+    }
+
+    .addTransaction {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      justify-content: center;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      background: var(--gradient);
+      color: var(--background);
+      border-radius: 50%;
+
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .logout {
+      background-color: #f4f4ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      gap: 10px;
+      width: fit-content;
+      border: none;
+      padding: 15px 15px;
+      border-radius: 10px;
+      padding-left: 20px;
+      transition: all 0.3s;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .logout:hover {
+      background-color: var(--primary);
+      color: #f9fafb;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .mobileNav.small {
+    visibility: visible;
+  }
+}

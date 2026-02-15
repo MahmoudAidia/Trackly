@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 0;
+
   .app {
     width: 85vw;
     margin-left: 18vw;
@@ -14,7 +15,7 @@
     width: 15vw;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     a:link,
     a:visited {
       display: flex;
@@ -69,9 +70,6 @@
     }
 
     .addTransaction {
-      position: fixed;
-      bottom: 50px;
-      left: 30px;
       display: flex;
       align-items: center;
       gap: 5px;
@@ -103,6 +101,17 @@
     .logout:hover {
       background-color: var(--primary);
       color: #f9fafb;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .layout {
+    .app {
+      margin: 0 auto;
+      .dashboard {
+        padding-left: 0;
+      }
     }
   }
 }

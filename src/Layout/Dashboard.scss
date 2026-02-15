@@ -4,14 +4,14 @@
 }
 
 .dashboard {
-  // width: 85vw;
   width: 100%;
   margin-bottom: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, auto);
+  // grid-template-rows: repeat(3, auto);
   column-gap: 15px;
   row-gap: 0;
+  padding-left: 20px;
   .overviewBox {
     background: var(--gradient);
     border-bottom-right-radius: 10px;
@@ -41,4 +41,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 1050px) {
+  .dashboard {
+    .chartBox {
+      grid-column: span 2;
+      .pieChartItem {
+        justify-content: space-between;
+        div {
+          width: 100%;
+        }
+      }
+    }
+  }
 }

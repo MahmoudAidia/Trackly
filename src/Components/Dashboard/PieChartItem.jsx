@@ -3,6 +3,7 @@ import { RechartsDevtools } from "@recharts/devtools";
 import ChartBullets from "./ChartBullets";
 import "./PieChartItem.scss";
 import { colors } from "../../helpers/constants";
+import { formatCurrency } from "../../helpers/formatCurrency";
 
 function PieChartItem({ expenses }) {
   const chartData = Object.values(
@@ -15,21 +16,38 @@ function PieChartItem({ expenses }) {
 
   return (
     <div className="pieChartItem">
-      <PieChart width={200} height={200}>
-        <Pie
-          data={chartData}
-          dataKey="value"
-          cx="50%"
-          cy="50%"
-          innerRadius={50}
-          outerRadius={80}
-        >
-          {chartData.map((entry, index) => (
-            <Cell key={index} fill={colors[entry.name] ?? "#ccc"} />
-          ))}
-        </Pie>
-        <Tooltip formatter={(v) => `$${v}`} />
-      </PieChart>
+      <div className="chartBox">
+        <PieChart width={300} height={300}>
+          <Pie
+            data={chartData}
+            dataKey="value"
+            cx="50%"
+            cy="50%"
+            innerRadius={50}
+            outerRadius={80}
+          >
+            {chartData.map((entry, index) => (
+              <Cell key={index} fill={colors[entry.name] ?? "#ccc"} />
+            ))}
+          </Pie>
+          <Tooltip
+            contentStyle={{
+              background: "linear-gradient(to bottom right, #5238f6, #9515fa)",
+              borderRadius: 10,
+              border: "none",
+              width: "fit-content",
+              height: "auto",
+            }}
+            itemStyle={{ color: "#fff", fontWeight: "bold" }}
+            labelStyle={{ color: "#ddd" }}
+            formatter={(value, name) => {
+              return [formatCurrency(value), name];
+            }}
+            verticalAlign="top"
+            align="center"
+          />
+        </PieChart>
+      </div>
 
       <div className="text">
         {chartData.map((item, index) => (

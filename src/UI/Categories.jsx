@@ -1,7 +1,7 @@
 import React from "react";
 import CategoryItem from "../Components/AddExpense/CategoryItem";
 import { categoriesIcons } from "../helpers/constants";
-
+import "./Categories.scss";
 function Categories({
   formType,
   incomeCategories,

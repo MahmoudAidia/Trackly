@@ -1,3 +1,4 @@
+import { formatCurrency } from "../../helpers/formatCurrency";
 import "./BarChartItem.scss";
 import { BarChart, Bar, XAxis, ResponsiveContainer, Tooltip } from "recharts";
 
@@ -39,8 +40,18 @@ function BarChartItem({ expenses }) {
           />
 
           <Tooltip
-            formatter={(value) => `$${value}`}
-            cursor={{ fill: "transparent" }}
+            contentStyle={{
+              background: "linear-gradient(to bottom right, #5238f6, #9515fa)",
+              borderRadius: 10,
+              border: "none",
+            }}
+            itemStyle={{ color: "#fff", fontWeight: "bold" }}
+            labelStyle={{ color: "#ddd" }}
+            formatter={(value, name) => {
+              return [formatCurrency(value), name];
+            }}
+            verticalAlign="top"
+            align="center"
           />
 
           <Bar dataKey="amount" fill={BAR_COLOR} radius={[4, 4, 0, 0]} />
