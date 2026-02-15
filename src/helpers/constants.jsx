@@ -11,6 +11,15 @@ import PushPinIcon from "@mui/icons-material/PushPin";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import CurrencyExchangeOutlinedIcon from "@mui/icons-material/CurrencyExchangeOutlined";
 
+// import LunchDiningIcon from "@mui/icons-material/LunchDining";
+// import AirportShuttleIcon from "@mui/icons-material/AirportShuttle";
+// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+// import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
+// import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+// import SchoolIcon from "@mui/icons-material/School";
+// import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+// import PushPinIcon from "@mui/icons-material/PushPin";
+
 export const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
 export const categories = [
@@ -57,3 +66,17 @@ export const colors = {
   Freelance: "#5f3dc4",
   Other: "#862e9c",
 };
+
+export const filterCategories = [
+  { name: "All", icon: <LunchDiningIcon />, id: 0 },
+  { name: "Food", icon: <LunchDiningIcon />, id: 1 },
+  { name: "Transport", icon: <AirportShuttleIcon />, id: 2 },
+  { name: "Bills", icon: <EmojiObjectsIcon />, id: 3 },
+  { name: "Shopping", icon: <ShoppingCartIcon />, id: 4 },
+  { name: "Health", icon: <HealthAndSafetyIcon />, id: 5 },
+  { name: "Education", icon: <SchoolIcon />, id: 6 },
+  { name: "Entertainments", icon: <SportsEsportsIcon />, id: 7 },
+  { name: "Salary", icon: <SportsEsportsIcon />, id: 8 },
+  { name: "Freelance", icon: <SportsEsportsIcon />, id: 8 },
+  { name: "Other", icon: <PushPinIcon />, id: 9 },
+];

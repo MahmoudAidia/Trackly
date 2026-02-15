@@ -7,10 +7,23 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
   color: #c92a2a;
   font-weight: 300;
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+  }
   .balance {
     font-weight: 600;
+  }
+}
+
+@media (max-width: 490px) {
+  .dangerMessage {
+    font-size: 13px;
+    padding: 5px;
   }
 }

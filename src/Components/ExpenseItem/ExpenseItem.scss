@@ -2,7 +2,6 @@
   list-style: none;
   padding: 15px 20px;
   background-color: #fff;
-  margin-bottom: 20px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -10,9 +9,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5px;
   border-radius: 10px;
-
+  font-size: 14px;
+  margin-bottom: 15px;
   div {
     justify-self: start;
     gap: 10px;
@@ -44,6 +43,23 @@
     .payment {
       font-size: 14px;
       color: var(--text-tint);
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .expenseItem {
+    padding: 10px;
+    margin-bottom: 15px;
+    div {
+    }
+    .price {
+      width: fit-content;
+      justify-self: flex-end;
+      .value {
+        text-align: end;
+        width: 100%;
+      }
     }
   }
 }

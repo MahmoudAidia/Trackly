@@ -6,12 +6,20 @@
   background-color: #f4f4ff;
   .searchBox {
     background-color: #fff;
+    width: 100%;
+    border-radius: 10px;
+
+    .search {
+      width: 100%;
+    }
     .incomeExpensesBox {
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: 10px;
       padding: 0 30px;
+      margin-bottom: 0;
+
       .incomeBox,
       .expenseBox {
         width: 100%;
@@ -68,6 +76,27 @@
     .loaderBox {
       width: 100%;
       height: 100%;
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .transaction {
+    .searchBox {
+      width: 100%;
+      .incomeExpensesBox {
+        padding: 0;
+        gap: 4px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        div {
+          margin-bottom: 0;
+        }
+      }
+      .search {
+        width: 100%;
+      }
     }
   }
 }
