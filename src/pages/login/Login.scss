@@ -1,7 +1,7 @@
 .login {
-  min-width: 400px;
+  min-width: 300px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 8vh;
   display: flex;
   flex-direction: column;
   background-color: #f4f4ff;
@@ -23,7 +23,7 @@
     flex-direction: column;
     gap: 5px;
     justify-content: start;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     label {
       font-weight: 600;
     }

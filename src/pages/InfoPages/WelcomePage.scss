@@ -1,18 +1,21 @@
 .WelcomePage {
   position: relative;
-
+  height: 100vh;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
   .skip {
     text-decoration: none;
     color: var(--text);
     position: absolute;
-    right: 50px;
+    right: 30px;
     top: 50px;
   }
   .btnContainer {
-    position: absolute;
-    bottom: -170px;
-    right: 50%;
-    transform: translate(50%, 0);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
     button,
     a {
       text-decoration: none;
@@ -20,7 +23,7 @@
       align-items: center;
       justify-content: center;
       padding: 18px 0;
-      width: 25vw;
+      width: 200px;
       border-radius: 10px;
       border: none;
       background-color: var(--primary);

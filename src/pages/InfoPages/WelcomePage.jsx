@@ -60,7 +60,6 @@ function WelcomePage() {
           <>
             <Link to="/login">
               <span>Get Started</span>
-
               <ChevronRightOutlinedIcon />
             </Link>
           </>

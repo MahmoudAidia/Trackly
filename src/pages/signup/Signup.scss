@@ -1,5 +1,5 @@
 .signup {
-  min-width: 400px;
+  min-width: 300px;
   margin: 0 auto;
   margin-top: 15px;
   display: flex;
@@ -50,6 +50,17 @@
     a {
       text-decoration: none;
       color: var(--primary);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .signup {
+    margin-top: 6vh;
+    .signHeader {
+      h2 {
+        font-size: 30px;
+      }
     }
   }
 }
