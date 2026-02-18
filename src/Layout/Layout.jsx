@@ -5,6 +5,7 @@ import { useState } from "react";
 import Modal from "../UI/Modal";
 import AddExpense from "../Components/AddExpense/AddExpense";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import MenuOpenOutlinedIcon from "@mui/icons-material/MenuOpenOutlined";
 import SideBar from "./SideBar";
 import MobileNav from "./MobileNav";
 function Layout() {
@@ -15,7 +16,14 @@ function Layout() {
     <div className="layout">
       <SideBar setShowModal={setShowModal} size="large" />
       <nav className="nav">
-        <MobileNav setShowModal={setShowModal} size="small" />
+        {openNav && (
+          <Modal onClose={setOpenNav} isOpen={openNav} title={"Navigation"}>
+            <MobileNav setShowModal={setOpenNav} />
+          </Modal>
+        )}
+        <button onClick={() => setOpenNav((prev) => !prev)}>
+          {!openNav ? <MenuOutlinedIcon /> : <MenuOpenOutlinedIcon />}
+        </button>
       </nav>
       <section className="app">
         <Outlet />

@@ -1,5 +1,5 @@
 .twoBarChart {
-  height: 500px;
+  height: 400px;
   margin-top: 50px;
   margin-bottom: 0;
   background-color: #f9fafb;
@@ -7,4 +7,13 @@
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   grid-column: span 2;
+  .recharts-wrapper *:focus {
+    outline: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .analytics {
+    margin-bottom: 10vh;
+  }
 }

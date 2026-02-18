@@ -30,15 +30,15 @@ function Signup() {
         email,
         password,
       );
+      // login(userCredential.user.uid);
+      await updateProfile(userCredential.user, {
+        displayName: name,
+      });
+      navigate("/app/dashboard");
     } catch (err) {
       console.log("Signup Failed", err);
       return;
     }
-    login(userCredential.user.uid);
-    await updateProfile(userCredential.user, {
-      displayName: name,
-    });
-    navigate("/app/dashboard");
   }
 
   return (

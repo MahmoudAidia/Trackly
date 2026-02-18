@@ -12,7 +12,8 @@
 .modal {
   width: 500px;
   max-width: 90vw;
-  height: 610px;
+  // height: 610px;
+  height: fit-content;
   overflow-y: scroll;
   background: #ffffff;
   border-radius: 14px;
@@ -36,8 +37,10 @@
 .close-btn {
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
+  color: #000;
+  // background-color:/ red;
 }
 
 .modal-content {

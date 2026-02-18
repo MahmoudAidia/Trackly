@@ -4,6 +4,7 @@ import PieChartItem from "../Components/Dashboard/PieChartItem";
 import RecentTransactions from "../Components/Dashboard/RecentTransactions";
 import { useAppContext } from "../Context/AppContext";
 import Loader from "../UI/Loader";
+import NoData from "../UI/NoData";
 import { getData } from "../api/getData";
 import { useFetchData } from "../hooks/useFetchData";
 
@@ -39,15 +40,21 @@ function Dashboard() {
           totalIncome={totalIncome}
         />
       </div>
-      <div className="chartBox">
-        <PieChartItem expenses={expenses} />
-      </div>
-      <div className="barBox">
-        <BarChartItem expenses={expenses} />
-      </div>
-      <div className="recentTransBox">
-        <RecentTransactions expenses={expenses} />
-      </div>
+      {expenses.length === 0 ? (
+        <NoData text={"There are no Transactions yet!!"} />
+      ) : (
+        <>
+          <div className="chartBox">
+            <PieChartItem expenses={expenses} />
+          </div>
+          <div className="barBox">
+            <BarChartItem expenses={expenses} />
+          </div>
+          <div className="recentTransBox">
+            <RecentTransactions expenses={expenses} />
+          </div>
+        </>
+      )}
     </div>
   );
 }

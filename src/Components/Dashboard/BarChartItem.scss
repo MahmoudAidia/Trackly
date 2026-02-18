@@ -8,6 +8,9 @@
   padding-bottom: 40px;
   margin-bottom: 0;
   border-radius: 10px;
+  .recharts-wrapper *:focus {
+    outline: none;
+  }
 }
 
 @media (max-width: 1050px) {

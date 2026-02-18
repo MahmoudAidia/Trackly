@@ -43,6 +43,12 @@ function SideBar({ setShowModal, size }) {
           <PersonOutlineOutlinedIcon />
           <span>Profile</span>
         </Link> */}
+
+      <button onClick={setShowModal} className="addTransaction">
+        <AddCircleOutlineIcon />
+        <span>Add Transaction</span>
+      </button>
+
       <button
         className="logout"
         onClick={() => {
@@ -52,11 +58,6 @@ function SideBar({ setShowModal, size }) {
       >
         <LogoutIcon />
         <span>Log Out</span>
-      </button>
-
-      <button onClick={setShowModal} className="addTransaction">
-        <AddCircleOutlineIcon />
-        <span>Add Transaction</span>
       </button>
     </aside>
   );

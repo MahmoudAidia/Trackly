@@ -1,14 +1,17 @@
-import BudgetItem from "../../Components/Budget/BudgetItem";
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import "./Budget.scss";
 import { useState } from "react";
-import CreateBudget from "../../Components/Budget/CreateBudget";
-import Modal from "../../UI/Modal.jsx";
 import { useFetchData } from "../../hooks/useFetchData.js";
 import { useAppContext } from "../../Context/AppContext.jsx";
-import Loader from "../../UI/Loader.jsx";
 import { formatCurrency } from "../../helpers/formatCurrency.js";
+
+import BudgetItem from "../../Components/Budget/BudgetItem";
+import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import CreateBudget from "../../Components/Budget/CreateBudget";
+import Modal from "../../UI/Modal.jsx";
 import GrothBar from "../../Components/Budget/GrothBar.jsx";
+import Loader from "../../UI/Loader.jsx";
+import NoData from "../../UI/NoData.jsx";
+
+import "./Budget.scss";
 
 function Budget() {
   const [showCreateBudget, setShowCreateBudget] = useState(false);
@@ -34,7 +37,11 @@ function Budget() {
     (acc, item) => Number(item.limit) + acc,
     0,
   );
-  const totalExpenses = expenses?.reduce((acc, item) => item.value + acc, 0);
+
+  const totalExpenses = expenses
+    ?.filter((item) => item.type === "expense")
+    .reduce((acc, item) => item.value + acc, 0);
+
   const percent = Math.ceil((totalExpenses / totalBudgets) * 100);
   const expensePerCategory = {};
   for (const item of expenses) {
@@ -69,14 +76,18 @@ function Budget() {
         </div>
       </div>
       <div className="budgetList">
-        {budgets?.map((item) => (
-          <BudgetItem
-            totalBudgets={totalBudgets}
-            limit={item.limit}
-            category={item.category}
-            expenses={expensePerCategory[item.category]}
-          />
-        ))}
+        {budgets.length === 0 ? (
+          <NoData text={"There are no Budgets yet!!"} />
+        ) : (
+          budgets?.map((item) => (
+            <BudgetItem
+              totalBudgets={totalBudgets}
+              limit={item.limit}
+              category={item.category}
+              expenses={expensePerCategory[item.category]}
+            />
+          ))
+        )}
       </div>
 
       {showCreateBudget && (

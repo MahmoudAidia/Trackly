@@ -9,4 +9,10 @@
   div {
     margin-bottom: 0;
   }
+  .recharts-sector:focus {
+    outline: none;
+  }
+  .recharts-wrapper *:focus {
+    outline: none;
+  }
 }

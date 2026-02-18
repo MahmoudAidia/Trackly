@@ -14,6 +14,7 @@ import {
   sortFilterExpenses,
 } from "../../helpers/sortFilterExpenses";
 import Loader from "../../UI/Loader";
+import NoData from "../../UI/NoData";
 
 function Transaction() {
   const { userId } = useAppContext();
@@ -30,6 +31,9 @@ function Transaction() {
     collectionName: "expense",
     userId,
   });
+  let nodata;
+  if (expenses?.length === 0)
+    nodata = <NoData text={"There are no Transactions yet!!"} />;
 
   if (
     query !== "" ||
@@ -88,16 +92,19 @@ function Transaction() {
           </div>
         </div>
       </div>
-
-      <ul className="transactionList">
-        {isLoading ? (
-          <div className="loaderBox">
-            <Loader />
-          </div>
-        ) : (
-          result
-        )}
-      </ul>
+      {nodata ? (
+        nodata
+      ) : (
+        <ul className="transactionList">
+          {isLoading ? (
+            <div className="loaderBox">
+              <Loader />
+            </div>
+          ) : (
+            result
+          )}
+        </ul>
+      )}
     </div>
   );
 }

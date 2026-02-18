@@ -16,25 +16,41 @@ function MobileNav({ setShowModal, size }) {
   return (
     <div className={`mobileNav ${size}`}>
       <div>
-        <Link to="./dashboard">
+        <Link to="./dashboard" onClick={() => setShowModal(false)}>
           <HomeOutlinedIcon />
           <span>Dashboard</span>
         </Link>
-        <Link to="./transactions">
+        <Link to="./transactions" onClick={() => setShowModal(false)}>
           <MonetizationOnOutlinedIcon />
           <span>Transactions</span>
         </Link>
-        <button onClick={setShowModal} className="addTransaction">
-          <AddCircleOutlineIcon />
-        </button>
-        <Link to="./budgets">
+
+        <Link to="./budgets" onClick={() => setShowModal(false)}>
           <DataUsageOutlinedIcon />
           <span>Budgets</span>
         </Link>
-        <Link to="./analytics">
+        <Link to="./analytics" onClick={() => setShowModal(false)}>
           <MovingOutlinedIcon />
           <span>Analytics</span>
         </Link>
+        <button
+          className="addTransaction btn"
+          onClick={() => setShowModal(false)}
+        >
+          <AddCircleOutlineIcon />
+          <span>Add Transaction</span>
+        </button>
+
+        <button
+          className="logout btn"
+          onClick={() => {
+            queryClient.clear();
+            logout();
+          }}
+        >
+          <LogoutIcon />
+          <span>Log Out</span>
+        </button>
       </div>
     </div>
   );

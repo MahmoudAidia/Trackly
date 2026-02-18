@@ -25,7 +25,7 @@ const LineCharts = ({ isAnimationActive = true, data }) => {
     <LineChart
       style={{
         width: "100%",
-        maxHeight: "70vh",
+        height: "100%",
         aspectRatio: 1.618,
       }}
       responsive

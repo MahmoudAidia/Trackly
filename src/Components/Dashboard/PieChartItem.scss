@@ -1,4 +1,5 @@
 .pieChartItem {
+  outline: none;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,6 +10,13 @@
   padding: 20px;
   border-radius: 10px;
   height: auto;
+  .recharts-sector:focus {
+    outline: none;
+  }
+  .recharts-wrapper *:focus {
+    outline: none;
+  }
+
   .chartBox {
     width: 100%;
     display: flex;

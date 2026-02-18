@@ -12,6 +12,7 @@ import ChartBullets from "../../Components/Dashboard/ChartBullets";
 import { categoriesIcons, colors } from "../../helpers/constants";
 import { formatCurrency } from "../../helpers/formatCurrency";
 import TwoBarChart from "../../Components/Analytics/TwoBarChart";
+import NoData from "../../UI/NoData";
 
 function Analytics() {
   const { userId } = useAppContext();
@@ -68,10 +69,10 @@ function Analytics() {
     <div className="analytics">
       <div className="header">
         <h4>Analytics</h4>
-        <div>
+        {/* <div>
           <button>Monthly</button>
           <button>Yearly</button>
-        </div>
+        </div> */}
 
         <div className="cardContainer">
           <Card
@@ -94,30 +95,39 @@ function Analytics() {
           />
         </div>
       </div>
-      <div className="body">
-        <LineChartItem data={lineChartData} />
-        {/* <div className="spendings"> */}
-        <div className="chartAndBullet">
-          <SpendingChart data={expensePerCategory} />
-          <div className="bulletBox">{bullets.map((item) => item)}</div>
-        </div>
-        <div className="topSpending">
-          <h6>
-            <CalendarMonth /> This Month
-          </h6>
-          <h4>Top Spending Category</h4>
-          <div className="box">
-            <span>{categoriesIcons[topSpending.category]}</span>
-            <div>
-              <h3>{topSpending.category}</h3>
-              <h6>{formatCurrency(topSpending.value)} spent</h6>
-            </div>
-          </div>
-        </div>
-        {/* </div> */}
 
-        <TwoBarChart data={lineChartData} />
-      </div>
+      {expenses?.length === 0 ? (
+        <NoData text={"Please add some Transactions."} />
+      ) : (
+        <div className="body">
+          <LineChartItem data={lineChartData} />
+          {/* <div className="spendings"> */}
+          {Object.values(expensePerCategory).length === 0 ? (
+            <NoData text={"Please add some Expenses."} />
+          ) : (
+            <>
+              <div className="chartAndBullet">
+                <SpendingChart data={expensePerCategory} />
+                <div className="bulletBox">{bullets.map((item) => item)}</div>
+              </div>
+              <div className="topSpending">
+                <h6>
+                  <CalendarMonth /> This Month
+                </h6>
+                <h4>Top Spending Category</h4>
+                <div className="box">
+                  <span>{categoriesIcons[topSpending.category]}</span>
+                  <div>
+                    <h3>{topSpending.category}</h3>
+                    <h6>{formatCurrency(topSpending.value)} spent</h6>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+          <TwoBarChart data={lineChartData} />
+        </div>
+      )}
     </div>
   );
 }
