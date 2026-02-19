@@ -9,33 +9,36 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAppContext } from "../Context/AppContext";
 import "./MobileNav.scss";
-function MobileNav({ setShowModal, size }) {
+function MobileNav({ setShowModal, setOpenNav, size }) {
   const { logout } = useAppContext();
   const queryClient = useQueryClient();
 
   return (
     <div className={`mobileNav ${size}`}>
       <div>
-        <Link to="./dashboard" onClick={() => setShowModal(false)}>
+        <Link to="./dashboard" onClick={() => setOpenNav(false)}>
           <HomeOutlinedIcon />
           <span>Dashboard</span>
         </Link>
-        <Link to="./transactions" onClick={() => setShowModal(false)}>
+        <Link to="./transactions" onClick={() => setOpenNav(false)}>
           <MonetizationOnOutlinedIcon />
           <span>Transactions</span>
         </Link>
 
-        <Link to="./budgets" onClick={() => setShowModal(false)}>
+        <Link to="./budgets" onClick={() => setOpenNav(false)}>
           <DataUsageOutlinedIcon />
           <span>Budgets</span>
         </Link>
-        <Link to="./analytics" onClick={() => setShowModal(false)}>
+        <Link to="./analytics" onClick={() => setOpenNav(false)}>
           <MovingOutlinedIcon />
           <span>Analytics</span>
         </Link>
         <button
           className="addTransaction btn"
-          onClick={() => setShowModal(false)}
+          onClick={() => {
+            setOpenNav(false);
+            setShowModal(true);
+          }}
         >
           <AddCircleOutlineIcon />
           <span>Add Transaction</span>

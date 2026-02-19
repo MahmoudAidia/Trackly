@@ -9,10 +9,28 @@
     height: auto;
   }
   .nav {
-    position: absolute;
-    top: 30px;
-    right: 30px;
+    position: fixed;
+    z-index: 5;
+    top: 20px;
+    right: 0px;
     display: none;
+    .menuBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      svg {
+        color: #fff;
+        width: 40px;
+        height: 40px;
+      }
+    }
     // .btn {
     //   background: none;
     //   color: #fff;

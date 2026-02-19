@@ -18,10 +18,10 @@ function Layout() {
       <nav className="nav">
         {openNav && (
           <Modal onClose={setOpenNav} isOpen={openNav} title={"Navigation"}>
-            <MobileNav setShowModal={setOpenNav} />
+            <MobileNav setShowModal={setShowModal} setOpenNav={setOpenNav} />
           </Modal>
         )}
-        <button onClick={() => setOpenNav((prev) => !prev)}>
+        <button className="menuBtn" onClick={() => setOpenNav((prev) => !prev)}>
           {!openNav ? <MenuOutlinedIcon /> : <MenuOpenOutlinedIcon />}
         </button>
       </nav>
