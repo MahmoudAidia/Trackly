@@ -9,6 +9,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAppContext } from "../Context/AppContext";
+import { showSuccessToast } from "../UI/Toasts";
 
 function SideBar({ setShowModal, size }) {
   const { logout } = useAppContext();
@@ -54,6 +55,7 @@ function SideBar({ setShowModal, size }) {
         onClick={() => {
           queryClient.clear();
           logout();
+          showSuccessToast("You are logged out.");
         }}
       >
         <LogoutIcon />

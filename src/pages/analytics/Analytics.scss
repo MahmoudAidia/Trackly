@@ -69,73 +69,68 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     // grid-template-rows: repeat(3, auto);
-    .spendings {
+
+    .chartAndBullet {
+      width: 100%;
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 20px;
-      height: 50vh;
-      width: 100%;
-      grid-column: span 2;
-
-      .chartAndBullet {
-        background-color: #fff;
+      margin-bottom: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      background-color: #fff;
+      // margin-bottom: 20px;
+      .spendingChart {
         width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
         margin-bottom: 0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
-
-        .spendingChart {
-          width: 100%;
-          margin-bottom: 0;
-        }
-        .bulletBox {
-          width: 100%;
-          margin-bottom: 0;
-          padding: 20px;
-          height: 100%;
-        }
+      }
+      div.bulletBox {
+        width: 100%;
+        margin-bottom: 0;
+        padding: 20px;
+        height: fit-content;
+        background: #fff;
+        border-radius: 10px;
       }
     }
-    .topSpending {
-      width: 100%;
+  }
+  .topSpending {
+    width: 100%;
+    margin-bottom: 0;
+    background: linear-gradient(to bottom right, #9515fa, #5238f6);
+    height: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    color: #fff;
+    h6 {
+      font-size: 14px;
+      font-weight: normal;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+    }
+    h4 {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    .box {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
       margin-bottom: 0;
-      background: linear-gradient(to bottom right, #9515fa, #5238f6);
-      height: 100%;
-      padding: 30px;
-      border-radius: 10px;
-      color: #fff;
-      h6 {
-        font-size: 14px;
-        font-weight: normal;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 5px;
+      span {
+        font-size: 50px;
       }
-      h4 {
-        font-size: 20px;
-        margin-top: 20px;
-      }
-      .box {
-        margin-top: 20px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+      div {
         margin-bottom: 0;
-        span {
-          font-size: 50px;
-        }
-        div {
-          margin-bottom: 0;
-        }
       }
     }
   }
 }
+// }
 
 @media (max-width: 1270px) {
   .analytics {
@@ -153,6 +148,7 @@
       .chartAndBullet {
         grid-column: span 2;
         flex-direction: column;
+        background-color: #fff;
       }
       .topSpending {
         grid-column: span 2;
@@ -176,12 +172,6 @@
         }
       }
     }
-    .body {
-      .spendings {
-        .chartAndBullet {
-        }
-      }
-    }
   }
 }
 
@@ -191,9 +181,9 @@
       .chartAndBullet {
         grid-column: span 2;
         flex-direction: column;
-        background-color: #ffffff;
         padding: 30px;
         border-radius: 10px;
+        background-color: #fff;
       }
 
       .topSpending {

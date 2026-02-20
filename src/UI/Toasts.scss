@@ -1,8 +1,8 @@
 .trackly-toast {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translate(-50%);
+  left: 40%;
+  // transform: translate(50%);
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -54,5 +54,12 @@
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .trackly-toast {
+    top: 0;
+    left: 20%;
   }
 }

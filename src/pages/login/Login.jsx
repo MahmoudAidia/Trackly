@@ -9,7 +9,7 @@ import { useAppContext } from "../../Context/AppContext";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../Firebase/firebase";
 import toast from "react-hot-toast";
-import { showErrorToast } from "../../UI/Toasts";
+import { showErrorToast, showSuccessToast } from "../../UI/Toasts";
 import useLoginUser from "../../hooks/useLoginUser";
 import Loader from "../../UI/Loader";
 function Login() {
@@ -35,6 +35,7 @@ function Login() {
       return;
     }
     // login(user.uid);
+    showSuccessToast("Loged in successfully.");
     navigate("/app/dashboard");
   }
 

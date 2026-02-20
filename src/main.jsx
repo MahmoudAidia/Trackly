@@ -65,7 +65,11 @@ createRoot(document.getElementById("root")).render(
       <AppProvider>
         <RouterProvider router={router} />
       </AppProvider>
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          duration: 400,
+        }}
+      />
       {/* <ReactQueryDevtools initialIsOpen={false} position="right" /> */}
     </QueryClientProvider>
   </StrictMode>,
