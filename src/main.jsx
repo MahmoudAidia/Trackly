@@ -16,6 +16,7 @@ import Budget from "./pages/budget/Budget";
 import Analytics from "./pages/analytics/Analytics";
 import Profile from "./pages/profile/Profile";
 import "./main.scss";
+import { ToastBar, Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,7 @@ createRoot(document.getElementById("root")).render(
       <AppProvider>
         <RouterProvider router={router} />
       </AppProvider>
+      <Toaster />
       {/* <ReactQueryDevtools initialIsOpen={false} position="right" /> */}
     </QueryClientProvider>
   </StrictMode>,

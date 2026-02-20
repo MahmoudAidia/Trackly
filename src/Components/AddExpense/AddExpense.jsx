@@ -1,5 +1,9 @@
 import "./AddExpense.scss";
 import { useState } from "react";
+import { auth } from "../../Firebase/firebase";
+import { nanoid } from "@reduxjs/toolkit";
+import { useCreateData } from "../../hooks/useCreateData";
+import { showErrorToast, showSuccessToast } from "../../UI/Toasts";
 
 import BackspaceIcon from "@mui/icons-material/Backspace";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
@@ -12,12 +16,10 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import CurrencyExchangeOutlinedIcon from "@mui/icons-material/CurrencyExchangeOutlined";
+import Loader from "../../UI/Loader";
 
 import Num from "./Num";
-import { nanoid } from "@reduxjs/toolkit";
 import CategoryItem from "./CategoryItem";
-import { auth } from "../../Firebase/firebase";
-import { useCreateData } from "../../hooks/useCreateData";
 import Categories from "../../UI/Categories";
 
 const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, ".", 0];
@@ -44,14 +46,31 @@ function AddExpense({ setShowModal }) {
   const [payment, setPayment] = useState("");
   const [date, setDate] = useState("");
   const [note, setNote] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { mutateAsync } = useCreateData({ collectionName: "expense" });
 
   async function handleSubmit() {
     const currentUser = auth.currentUser;
-    if (!money || !category || !payment || !date || !currentUser) {
-      console.log("Inputs are not filled");
+    if (!money) {
+      showErrorToast("Please enter the amount of money.");
       return;
     }
+    if (!category) {
+      showErrorToast("Please enter the category.");
+      return;
+    }
+    if (!payment) {
+      showErrorToast("Please enter payment type.");
+      return;
+    }
+    if (!date) {
+      showErrorToast("Please enter the date.");
+      return;
+    }
+    // if (!money || !category || !payment || !date || !currentUser) {
+    //   console.log("Inputs are not filled");
+    //   return;
+    // }
     const newExpense = {
       value: Number(money),
       type: formType,
@@ -62,10 +81,14 @@ function AddExpense({ setShowModal }) {
       date,
     };
 
+    setIsLoading(true);
     const docRef = await mutateAsync(newExpense);
 
-    if (!docRef.id) throw new Error("There is no docRef id");
-    else {
+    if (!docRef.id) {
+      showErrorToast("Could not add this transactions.");
+    } else {
+      showSuccessToast("Added transaction successfully.");
+      setIsLoading(false);
       setMoney("0");
       setCategory("");
       setPayment("");
@@ -150,7 +173,7 @@ function AddExpense({ setShowModal }) {
         />
       </div>
       <button className="btn" onClick={handleSubmit}>
-        Save Transation
+        {isLoading ? <Loader size="small" /> : "Save Transation"}
       </button>
     </div>
   );

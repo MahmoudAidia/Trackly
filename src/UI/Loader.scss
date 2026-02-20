@@ -1,17 +1,25 @@
 .loader-container {
   display: flex;
-  justify-content: center; /* أفقياً */
-  align-items: center; /* عمودياً */
-  height: 100%; /* يغطي الكونتينر بالكامل */
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   width: 100%;
-  position: relative; /* مهم لو الكونتينر مش body */
+  position: relative;
+  margin: 0 !important;
   .spinner {
-    width: 50px;
-    height: 50px;
     border: 5px solid rgba(0, 0, 0, 0.1);
     border-top-color: #0088fe;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    margin: 0 !important;
+  }
+  .spinner.small {
+    width: 25px;
+    height: 25px;
+  }
+  .spinner.large {
+    width: 50px;
+    height: 50px;
   }
 }
 

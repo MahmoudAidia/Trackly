@@ -1,9 +1,10 @@
 import "./Input.scss";
-function Input({ type, placeholder, name, handleChange }) {
+function Input({ type, placeholder, name, handleChange, value }) {
   return (
     <div>
       <label htmlFor={type}>{name}</label>
       <input
+        value={value}
         type={type}
         name={type}
         id={type}

@@ -4,23 +4,47 @@ import Categories from "../../UI/Categories";
 import { useState } from "react";
 import { useCreateData } from "../../hooks/useCreateData";
 import { useAppContext } from "../../Context/AppContext";
-
+import { showErrorToast, showSuccessToast } from "../../UI/Toasts";
+import Loader from "../../UI/Loader";
+import { useCreateUpdateBudget } from "../../hooks/useCreateUpdateBudget";
 function CreateBudget({ setShowModal }) {
   const [category, setCategory] = useState("");
   const [limit, setLimit] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const { mutateAsync } = useCreateData({ collectionName: "budget" });
+
   const { userId } = useAppContext();
 
-  async function handleCreateBudget() {
-    const data = { category, limit, userId };
-    const docRef = await mutateAsync(data);
+  const { mutateAsync: mutateBudget } = useCreateUpdateBudget();
 
-    if (!docRef.id) throw new Error("Data wasn't sent to the server");
-    else {
-      setCategory("");
-      setLimit(null);
-      setShowModal(false);
+  async function handleCreateBudget() {
+    if (!category) {
+      showErrorToast("Please specify category.");
+      return;
     }
+    if (!limit) {
+      showErrorToast("Please specify the amount of money.");
+      return;
+    }
+    setIsLoading(true);
+    const data = { category, limit: Number(limit), userId };
+    const { created, updated } = await mutateBudget(data);
+    // const docRef = await mutateAsync(data);
+
+    if (!created && !updated) {
+      showErrorToast("Could not add budget. Something went wrong");
+      setIsLoading(false);
+      throw new Error("Data wasn't sent to the server");
+    }
+    if (created) {
+      showSuccessToast("Created budget successfully.");
+    } else if (updated) {
+      showSuccessToast("Updated budget successfully.");
+    }
+    setCategory("");
+    setLimit(null);
+    setShowModal(false);
+    setIsLoading(false);
   }
 
   return (
@@ -52,7 +76,7 @@ function CreateBudget({ setShowModal }) {
           disabled={!(limit && category)}
           onClick={() => handleCreateBudget()}
         >
-          Create
+          {isLoading ? <Loader size="small" /> : "Create"}
         </button>
       </div>
     </div>

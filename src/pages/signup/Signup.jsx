@@ -8,6 +8,9 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../../Firebase/firebase.js";
 import { useAppContext } from "../../Context/AppContext.jsx";
+import { showErrorToast, showSuccessToast } from "../../UI/Toasts.jsx";
+import Loader from "../../UI/Loader.jsx";
+import { Slash } from "lucide-react";
 
 function Signup() {
   const { login } = useAppContext();
@@ -15,14 +18,22 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
 
   async function signupUser(e) {
     e.preventDefault();
-    if (confirm !== password) {
-      alert("Passwords do not match");
+    if (!name || !email || !password || !confirm) {
+      showErrorToast("Please enter all required fields.");
       return;
     }
+
+    if (confirm !== password) {
+      showErrorToast("Password does not match.");
+      return;
+    }
+    setIsLoading(true);
     let userCredential;
     try {
       userCredential = await createUserWithEmailAndPassword(
@@ -30,11 +41,11 @@ function Signup() {
         email,
         password,
       );
-      // login(userCredential.user.uid);
       await updateProfile(userCredential.user, {
         displayName: name,
       });
       navigate("/app/dashboard");
+      showSuccessToast("Singed in successfully");
     } catch (err) {
       console.log("Signup Failed", err);
       return;
@@ -72,8 +83,14 @@ function Signup() {
         handleChange={setConfirm}
       />
       <button type="submit" className="btn">
-        <span>Create Account</span>
-        <ChevronRight />
+        {isLoading ? (
+          <Loader size={"small"} />
+        ) : (
+          <>
+            <span>Create Account</span>
+            <ChevronRight />
+          </>
+        )}
       </button>
       <SignupWith />
       <div className="backToLogin">
