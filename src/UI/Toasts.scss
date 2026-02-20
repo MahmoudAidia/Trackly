@@ -1,8 +1,7 @@
 .trackly-toast {
   position: absolute;
   top: 0;
-  left: 40%;
-  // transform: translate(50%);
+  right: 0;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -48,11 +47,11 @@
 
 @keyframes slideIn {
   from {
-    transform: translateY(10px);
+    transform: translateX(-50px);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
+    transform: translateX(0px);
     opacity: 1;
   }
 }
