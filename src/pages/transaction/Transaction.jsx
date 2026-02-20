@@ -31,6 +31,7 @@ function Transaction() {
     collectionName: "expense",
     userId,
   });
+
   let nodata;
   if (expenses?.length === 0)
     nodata = <NoData text={"There are no Transactions yet!!"} />;
@@ -45,9 +46,12 @@ function Transaction() {
       totalExpensesValue,
       totalIncomeValue,
     } = sortFilterExpenses(expenses, activeFilter, query);
+
+    console.log(filteredExpenses);
     result = filteredExpenses.map((item) => (
       <ExpenseItem
         key={item.id}
+        id={item.id}
         date={item.date}
         category={item.category}
         desc={item.desc}

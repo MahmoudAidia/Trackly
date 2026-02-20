@@ -13,6 +13,10 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
+    .deleteBox {
+      flex-direction: row;
+      align-items: center;
+    }
     .iconNormal {
       color: #16a34a;
     }

@@ -82,7 +82,10 @@ function AddExpense({ setShowModal }) {
     };
 
     setIsLoading(true);
-    const docRef = await mutateAsync(newExpense);
+    const docRef = await mutateAsync({
+      collectionName: "expense",
+      data: newExpense,
+    });
 
     if (!docRef.id) {
       showErrorToast("Could not add this transactions.");

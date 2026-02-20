@@ -9,13 +9,9 @@ import {
 } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 
-/**
- * Safely create or update budget for a user/category
- */
 export async function createUpdateBudget({ userId, category, limit }) {
   const collectionName = "budget";
-  const numericValue = Number(limit) || 0; // ensure value is a number
-
+  const numericValue = Number(limit) || 0;
   try {
     const q = query(
       collection(db, collectionName),

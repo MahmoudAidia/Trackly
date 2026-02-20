@@ -15,6 +15,7 @@ import "./Budget.scss";
 
 function Budget() {
   const [showCreateBudget, setShowCreateBudget] = useState(false);
+
   const { userId } = useAppContext();
   const { data: expenses, isLoading: isLoadingExpenses } = useFetchData({
     collectionName: "expense",
@@ -81,6 +82,8 @@ function Budget() {
         ) : (
           budgets?.map((item) => (
             <BudgetItem
+              key={item.id}
+              id={item.id}
               totalBudgets={totalBudgets}
               limit={item.limit}
               category={item.category}

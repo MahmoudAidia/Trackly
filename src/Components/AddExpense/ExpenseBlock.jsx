@@ -8,6 +8,7 @@ function ExpenseBlock({ dateTitle, expenses }) {
       {expenses.map((item) => (
         <ExpenseItem
           key={item.id}
+          id={item.id}
           date={item.date}
           category={item.category}
           desc={item.desc}

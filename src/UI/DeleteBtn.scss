@@ -1,0 +1,10 @@
+.deleteBtn {
+  background: none;
+  border: none;
+  svg {
+    cursor: pointer;
+    color: var(--danger) !important;
+    width: 30px;
+    height: 30px;
+  }
+}

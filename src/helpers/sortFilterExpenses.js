@@ -36,7 +36,6 @@ export function createArrayofExpenses(data) {
 export function sortFilterExpenses(data, activeFilter, query) {
   let { expenses, totalExpensesValue, totalIncomeValue } =
     createArrayofExpenses(data);
-
   if (activeFilter.active !== "all") {
     expenses = expenses?.filter((item) => item.type === activeFilter.active);
   }

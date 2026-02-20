@@ -1,15 +1,30 @@
 import { categoriesIcons } from "../../helpers/constants";
+import { formatCurrency } from "../../helpers/formatCurrency";
+import { useDeleteItem } from "../../hooks/useDeleteItem";
+import { useAppContext } from "../../Context/AppContext";
 import GrothBar from "./GrothBar";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
-import { formatCurrency } from "../../helpers/formatCurrency";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
-import "./BudgetItem.scss";
 import DangerMessage from "./DangerMessage";
+import DeleteBtn from "../../UI/DeleteBtn";
+import "./BudgetItem.scss";
 
-function BudgetItem({ category, limit, expenses }) {
+function BudgetItem({ category, limit, expenses, id }) {
+  const { userId } = useAppContext();
   const totalExpenses = expenses?.reduce((acc, item) => item + acc, 0) || 0;
   const percent = Math.ceil((totalExpenses / limit) * 100);
   const balance = totalExpenses - limit;
+  const {
+    mutateAsync: deleteBudgetItem,
+    isPending,
+    isError,
+    isSuccess,
+  } = useDeleteItem({
+    collectionName: "budget",
+    userId,
+    dataId: id,
+  });
+
   return (
     <div className="budgetItem">
       <div className="text">
@@ -22,11 +37,16 @@ function BudgetItem({ category, limit, expenses }) {
             </p>
           </div>
         </div>
-        {percent < 80 ? (
-          <CheckCircleOutlinedIcon className="iconNormal" />
-        ) : (
-          <ErrorOutlineOutlinedIcon className="iconDanger" />
-        )}
+        <div className="deleteBox">
+          <span>
+            {percent < 80 ? (
+              <CheckCircleOutlinedIcon className="iconNormal" />
+            ) : (
+              <ErrorOutlineOutlinedIcon className="iconDanger" />
+            )}
+          </span>
+          <DeleteBtn isLoading={isPending} deleteFn={deleteBudgetItem} />
+        </div>
       </div>
       <GrothBar percent={percent} />
       <p className="stats">
