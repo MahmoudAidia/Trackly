@@ -1,16 +1,25 @@
-# React + Vite
+## Live Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- https://wild-oasis-react-app-three.vercel.app/dashboard
 
-Currently, two official plugins are available:
+## About the application
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- “Trackly” is expenses tracking dashboard system to manage your income and expenses.
+- The application is used to manage expenses or income amounts, category, payment method, date and the  
+  description.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Implemented backend with firebase.
+- Authentications and Authorization.
+- Beautiful dashboard to display the application information with beautiful charts.
+- Adding and deleting expenses and income.
+- Adding budgets per category.
+- Analysis of income and expenses for each month.
+- Displaying top spending category.
+- Searching and filtering transactions.
+- Displaying notifications per each operation.
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Reactjs - React Query - Sass - React Router - React hot toast - Recharts - Date fns.

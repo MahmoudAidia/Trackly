@@ -9,7 +9,6 @@ export const showSuccessToast = (message) => {
         <CheckCircle size={20} />
       </div>
       <div className="content">
-        {/* <span className="title">Successful</span> */}
         <span className="message">{message}</span>
       </div>
     </div>
